@@ -55,6 +55,7 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
     (0, uint256("0000063f4d58618fb238c1d42063d92f0ae20df4e782258b05ccd316b2944724"))
+    //(79, uint256("0000063f4d58618fb238c1d42063d92f0ae20df4e782258b05ccd316b2944724"))
     //(630, uint256("9cf5b61600a1d8489b7295be8a12984104f533d2e0856ef00745168456eff215"))
     ;
 static const Checkpoints::CCheckpointData data = {
@@ -116,7 +117,7 @@ public:
         pchMessageStart[2] = 0xfa;
         pchMessageStart[3] = 0xe1;
         vAlertPubKey = ParseHex("048b322f15140bb99df0de27653b3761190b7f162c875893c1da3138a5b0d5189bbf4f8ecfe7fe7c5374de522006f295da412059138d73e7ec2e526a51530e1292");
-        nDefaultPort = 51472;
+        nDefaultPort = 36321;
         bnProofOfWorkLimit = ~uint256(0) >> 20; // STOMP starting difficulty is 1 / 2^12
         nMaxReorganizationDepth = 100;
         nMinerThreads = 0;
@@ -125,8 +126,8 @@ public:
         nMaxMoneyOut = 36000000 * COIN;
 
         nMasternodeCollateral = 15000;
-        strDevFundAddress = "D5wVvyFg9t3TQGszyAkQ3G11QPJoS6Ldm3";
-        strRewardFundAddress = "D5wVvyFg9t3TQGszyAkQ3G11QPJoS6Ldm3";
+        strDevFundAddress = "SSDx9L7MAmg8yUfqMPTiRPjKJVnMyYz6mG";
+        strRewardFundAddress = "SagJitjZUH5ABahzyYAdEzoJBEJ4dc9dVa";
         nStakeInputMinimal = 200 * COIN;
 
         /** Height or Time Based Activations **/
