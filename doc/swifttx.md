@@ -11,9 +11,9 @@ When a "Transaction Lock" occurs the hash of the related transaction is broadcas
 * `zmqpubrawtxlock`: publishes the raw transaction when locked via SwiftX
 * `zmqpubhashtxlock`: publishes the transaction hash when locked via SwiftX
 
-This mechanism has been integrated into Bitcore-Node-PIVX which allows for notification to be broadcast through Insight API in one of two ways:
-* WebSocket: [https://github.com/PIVX-Project/insight-api-pivx#web-socket-api](https://github.com/PIVX-Project/insight-api-pivx#web-socket-api) 
-* API: [https://github.com/PIVX-Project/insight-api-pivx#swifttx-transactions](https://github.com/PIVX-Project/insight-api-pivx#swifttx-transactions) 
+This mechanism has been integrated into Bitcore-Node-STOMP which allows for notification to be broadcast through Insight API in one of two ways:
+* WebSocket: [https://github.com/StompStream/insight-api-stomp#web-socket-api](https://github.com/StompStream/insight-api-stomp#web-socket-api) 
+* API: [https://github.com/StompStream/insight-api-stomp#swifttx-transactions](https://github.com/StompStream/insight-api-stomp#swifttx-transactions) 
 
 ####Command line option
 

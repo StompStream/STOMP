@@ -1,0 +1,81 @@
+policy_module(stomp, 1.100.1)
+
+########################################
+#
+# Declarations
+#
+
+type stomp_t;
+type stomp_exec_t;
+init_daemon_domain(stomp_t, stomp_exec_t)
+
+permissive stomp_t;
+
+type stomp_initrc_exec_t;
+init_script_file(stomp_initrc_exec_t)
+
+type stomp_conf_t;
+files_type(stomp_conf_t)
+
+type stomp_var_lib_t;
+files_type(stomp_var_lib_t)
+
+type stomp_var_run_t;
+files_type(stomp_var_run_t)
+
+type stomp_port_t;
+corenet_port(stomp_port_t)
+
+########################################
+#
+# stomp local policy
+#
+allow stomp_t self:process { fork };
+
+allow stomp_t self:fifo_file rw_fifo_file_perms;
+allow stomp_t self:unix_stream_socket create_stream_socket_perms;
+
+manage_dirs_pattern(stomp_t, stomp_conf_t, stomp_conf_t)
+manage_files_pattern(stomp_t, stomp_conf_t, stomp_conf_t)
+
+manage_dirs_pattern(stomp_t, stomp_var_lib_t, stomp_var_lib_t)
+manage_files_pattern(stomp_t, stomp_var_lib_t, stomp_var_lib_t)
+files_var_lib_filetrans(stomp_t, stomp_var_lib_t, { dir file })
+
+manage_dirs_pattern(stomp_t, stomp_var_run_t, stomp_var_run_t)
+manage_files_pattern(stomp_t, stomp_var_run_t, stomp_var_run_t)
+
+sysnet_dns_name_resolve(stomp_t)
+corenet_all_recvfrom_unlabeled(stomp_t)
+
+allow stomp_t self:tcp_socket create_stream_socket_perms;
+corenet_tcp_sendrecv_generic_if(stomp_t)
+corenet_tcp_sendrecv_generic_node(stomp_t)
+corenet_tcp_sendrecv_all_ports(stomp_t)
+corenet_tcp_bind_generic_node(stomp_t)
+
+gen_require(`
+    type stomp_port_t;
+')
+allow stomp_t stomp_port_t:tcp_socket name_bind;
+
+gen_require(`
+    type stomp_port_t;
+')
+allow stomp_t stomp_port_t:tcp_socket name_connect;
+
+domain_use_interactive_fds(stomp_t)
+
+files_read_etc_files(stomp_t)
+
+miscfiles_read_localization(stomp_t)
+
+sysnet_dns_name_resolve(stomp_t)
+
+allow stomp_t stomp_exec_t:file execute_no_trans;
+allow stomp_t self:process setsched;
+corecmd_exec_ls(stomp_t)
+corenet_tcp_connect_http_port(stomp_t)
+dev_read_urand(stomp_t)
+fs_getattr_xattr_fs(stomp_t)
+kernel_read_system_state(stomp_t)

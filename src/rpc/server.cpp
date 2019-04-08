@@ -1,7 +1,7 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The PIVX developers
+// Copyright (c) 2015-2018 The STOMP developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -268,11 +268,11 @@ UniValue stop(const UniValue& params, bool fHelp)
     if (fHelp || params.size() > 1)
         throw runtime_error(
             "stop\n"
-            "\nStop PIVX server.");
+            "\nStop STOMP server.");
     // Event loop will exit after current HTTP requests have been handled, so
     // this reply will get back to the client.
     StartShutdown();
-    return "PIVX server stopping";
+    return "STOMP server stopping";
 }
 
 
@@ -364,37 +364,37 @@ static const CRPCCommand vRPCCommands[] =
         { "hidden",             "waitforblock",           &waitforblock,           true,  true,  false  },
         { "hidden",             "waitforblockheight",     &waitforblockheight,     true,  true,  false  },
 
-        /* PIVX features */
-        {"pivx", "masternode", &masternode, true, true, false},
-        {"pivx", "listmasternodes", &listmasternodes, true, true, false},
-        {"pivx", "getmasternodecount", &getmasternodecount, true, true, false},
-        {"pivx", "masternodeconnect", &masternodeconnect, true, true, false},
-        {"pivx", "createmasternodebroadcast", &createmasternodebroadcast, true, true, false},
-        {"pivx", "decodemasternodebroadcast", &decodemasternodebroadcast, true, true, false},
-        {"pivx", "relaymasternodebroadcast", &relaymasternodebroadcast, true, true, false},
-        {"pivx", "masternodecurrent", &masternodecurrent, true, true, false},
-        {"pivx", "masternodedebug", &masternodedebug, true, true, false},
-        {"pivx", "startmasternode", &startmasternode, true, true, false},
-        {"pivx", "createmasternodekey", &createmasternodekey, true, true, false},
-        {"pivx", "getmasternodeoutputs", &getmasternodeoutputs, true, true, false},
-        {"pivx", "listmasternodeconf", &listmasternodeconf, true, true, false},
-        {"pivx", "getmasternodestatus", &getmasternodestatus, true, true, false},
-        {"pivx", "getmasternodewinners", &getmasternodewinners, true, true, false},
-        {"pivx", "getmasternodescores", &getmasternodescores, true, true, false},
-        {"pivx", "mnbudget", &mnbudget, true, true, false},
-        {"pivx", "preparebudget", &preparebudget, true, true, false},
-        {"pivx", "submitbudget", &submitbudget, true, true, false},
-        {"pivx", "mnbudgetvote", &mnbudgetvote, true, true, false},
-        {"pivx", "getbudgetvotes", &getbudgetvotes, true, true, false},
-        {"pivx", "getnextsuperblock", &getnextsuperblock, true, true, false},
-        {"pivx", "getbudgetprojection", &getbudgetprojection, true, true, false},
-        {"pivx", "getbudgetinfo", &getbudgetinfo, true, true, false},
-        {"pivx", "mnbudgetrawvote", &mnbudgetrawvote, true, true, false},
-        {"pivx", "mnfinalbudget", &mnfinalbudget, true, true, false},
-        {"pivx", "checkbudgets", &checkbudgets, true, true, false},
-        {"pivx", "mnsync", &mnsync, true, true, false},
-        {"pivx", "spork", &spork, true, true, false},
-        {"pivx", "getpoolinfo", &getpoolinfo, true, true, false},
+        /* STOMP features */
+        {"stomp", "masternode", &masternode, true, true, false},
+        {"stomp", "listmasternodes", &listmasternodes, true, true, false},
+        {"stomp", "getmasternodecount", &getmasternodecount, true, true, false},
+        {"stomp", "masternodeconnect", &masternodeconnect, true, true, false},
+        {"stomp", "createmasternodebroadcast", &createmasternodebroadcast, true, true, false},
+        {"stomp", "decodemasternodebroadcast", &decodemasternodebroadcast, true, true, false},
+        {"stomp", "relaymasternodebroadcast", &relaymasternodebroadcast, true, true, false},
+        {"stomp", "masternodecurrent", &masternodecurrent, true, true, false},
+        {"stomp", "masternodedebug", &masternodedebug, true, true, false},
+        {"stomp", "startmasternode", &startmasternode, true, true, false},
+        {"stomp", "createmasternodekey", &createmasternodekey, true, true, false},
+        {"stomp", "getmasternodeoutputs", &getmasternodeoutputs, true, true, false},
+        {"stomp", "listmasternodeconf", &listmasternodeconf, true, true, false},
+        {"stomp", "getmasternodestatus", &getmasternodestatus, true, true, false},
+        {"stomp", "getmasternodewinners", &getmasternodewinners, true, true, false},
+        {"stomp", "getmasternodescores", &getmasternodescores, true, true, false},
+        {"stomp", "mnbudget", &mnbudget, true, true, false},
+        {"stomp", "preparebudget", &preparebudget, true, true, false},
+        {"stomp", "submitbudget", &submitbudget, true, true, false},
+        {"stomp", "mnbudgetvote", &mnbudgetvote, true, true, false},
+        {"stomp", "getbudgetvotes", &getbudgetvotes, true, true, false},
+        {"stomp", "getnextsuperblock", &getnextsuperblock, true, true, false},
+        {"stomp", "getbudgetprojection", &getbudgetprojection, true, true, false},
+        {"stomp", "getbudgetinfo", &getbudgetinfo, true, true, false},
+        {"stomp", "mnbudgetrawvote", &mnbudgetrawvote, true, true, false},
+        {"stomp", "mnfinalbudget", &mnfinalbudget, true, true, false},
+        {"stomp", "checkbudgets", &checkbudgets, true, true, false},
+        {"stomp", "mnsync", &mnsync, true, true, false},
+        {"stomp", "spork", &spork, true, true, false},
+        {"stomp", "getpoolinfo", &getpoolinfo, true, true, false},
 
 #ifdef ENABLE_WALLET
         /* Wallet */
@@ -464,11 +464,11 @@ static const CRPCCommand vRPCCommands[] =
         {"zerocoin", "exportzerocoins", &exportzerocoins, false, false, true},
         {"zerocoin", "reconsiderzerocoins", &reconsiderzerocoins, false, false, true},
         {"zerocoin", "getspentzerocoinamount", &getspentzerocoinamount, false, false, false},
-        {"zerocoin", "getzpivseed", &getzpivseed, false, false, true},
-        {"zerocoin", "setzpivseed", &setzpivseed, false, false, true},
+        {"zerocoin", "getzstmpseed", &getzstmpseed, false, false, true},
+        {"zerocoin", "setzstmpseed", &setzstmpseed, false, false, true},
         {"zerocoin", "generatemintlist", &generatemintlist, false, false, true},
-        {"zerocoin", "searchdzpiv", &searchdzpiv, false, false, true},
-        {"zerocoin", "dzpivstate", &dzpivstate, false, false, true},
+        {"zerocoin", "searchdzstmp", &searchdzstmp, false, false, true},
+        {"zerocoin", "dzstmpstate", &dzstmpstate, false, false, true},
         {"zerocoin", "clearspendcache", &clearspendcache, false, false, true}
 
 #endif // ENABLE_WALLET
@@ -633,7 +633,7 @@ std::vector<std::string> CRPCTable::listCommands() const
 
 std::string HelpExampleCli(string methodname, string args)
 {
-    return "> pivx-cli " + methodname + " " + args + "\n";
+    return "> stomp-cli " + methodname + " " + args + "\n";
 }
 
 std::string HelpExampleRpc(string methodname, string args)

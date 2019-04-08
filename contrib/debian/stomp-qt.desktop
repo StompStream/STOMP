@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=STOMP
+Comment=STOMP P2P Cryptocurrency
+Comment[fr]=STOMP, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=STOMP, eşten eşe kriptografik sanal para birimi
+Exec=stomp-qt %u
+Terminal=false
+Type=Application
+Icon=stomp128
+MimeType=x-scheme-handler/stomp;
+Categories=Office;Finance;

@@ -1,0 +1,37 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource prefix="/translations">
+        <file alias="bg">locale/stomp_bg.qm</file>
+        <file alias="ca">locale/stomp_ca.qm</file>
+        <file alias="cs">locale/stomp_cs.qm</file>
+        <file alias="da">locale/stomp_da.qm</file>
+        <file alias="de">locale/stomp_de.qm</file>
+        <file alias="en">locale/stomp_en.qm</file>
+        <file alias="en_GB">locale/stomp_en_GB.qm</file>
+        <file alias="en_US">locale/stomp_en_US.qm</file>
+        <file alias="eo">locale/stomp_eo.qm</file>
+        <file alias="es">locale/stomp_es.qm</file>
+        <file alias="es_ES">locale/stomp_es_ES.qm</file>
+        <file alias="fi">locale/stomp_fi.qm</file>
+        <file alias="fr_FR">locale/stomp_fr_FR.qm</file>
+        <file alias="hi_IN">locale/stomp_hi_IN.qm</file>
+        <file alias="hr">locale/stomp_hr.qm</file>
+        <file alias="hr_HR">locale/stomp_hr_HR.qm</file>
+        <file alias="it">locale/stomp_it.qm</file>
+        <file alias="ja">locale/stomp_ja.qm</file>
+        <file alias="ko_KR">locale/stomp_ko_KR.qm</file>
+        <file alias="lt_LT">locale/stomp_lt_LT.qm</file>
+        <file alias="nl">locale/stomp_nl.qm</file>
+        <file alias="pl">locale/stomp_pl.qm</file>
+        <file alias="pt">locale/stomp_pt.qm</file>
+        <file alias="pt_BR">locale/stomp_pt_BR.qm</file>
+        <file alias="ro_RO">locale/stomp_ro_RO.qm</file>
+        <file alias="ru">locale/stomp_ru.qm</file>
+        <file alias="sk">locale/stomp_sk.qm</file>
+        <file alias="sv">locale/stomp_sv.qm</file>
+        <file alias="tr">locale/stomp_tr.qm</file>
+        <file alias="uk">locale/stomp_uk.qm</file>
+        <file alias="vi">locale/stomp_vi.qm</file>
+        <file alias="zh_CN">locale/stomp_zh_CN.qm</file>
+        <file alias="zh_TW">locale/stomp_zh_TW.qm</file>
+    </qresource>
+</RCC>

@@ -1,10 +1,10 @@
 UNIX BUILD NOTES
 ====================
-Some notes on how to build PIVX in Unix.
+Some notes on how to build STOMP in Unix.
 
 Note
 ---------------------
-Always use absolute paths to configure and compile pivx and the dependencies,
+Always use absolute paths to configure and compile stomp and the dependencies,
 for example, when specifying the path of the dependency:
 
 	../dist/configure --enable-cxx --disable-shared --with-pic --prefix=$BDB_PREFIX
@@ -22,7 +22,7 @@ make
 make install # optional
 ```
 
-This will build pivx-qt as well if the dependencies are met.
+This will build stomp-qt as well if the dependencies are met.
 
 Dependencies
 ---------------------
@@ -103,7 +103,7 @@ ZMQ dependencies (provides ZMQ API):
 GUI dependencies:
 
 
-If you want to build pivx-qt, make sure that the required packages for Qt development
+If you want to build stomp-qt, make sure that the required packages for Qt development
 are installed. Qt 5 is necessary to build the GUI.
 If both Qt 4 and Qt 5 are installed, Qt 5 will be used.
 To build without GUI pass `--without-gui`.
@@ -116,7 +116,7 @@ libqrencode (optional) can be installed with:
 
     sudo apt-get install libqrencode-dev
 
-Once these are installed, they will be found by configure and a pivx-qt executable will be
+Once these are installed, they will be found by configure and a stomp-qt executable will be
 built by default.
 
 ### Fedora
@@ -142,7 +142,7 @@ libqrencode (optional) can be installed with:
 
 Notes
 -----
-The release is built with GCC and then "strip pivxd" to strip the debug
+The release is built with GCC and then "strip stompd" to strip the debug
 symbols, which reduces the executable size by about 90%.
 
 
@@ -171,10 +171,10 @@ Berkeley DB
 It is recommended to use Berkeley DB 4.8. If you have to build it yourself:
 
 ```bash
-PIVX_ROOT=$(pwd)
+STOMP_ROOT=$(pwd)
 
-# Pick some path to install BDB to, here we create a directory within the pivx directory
-BDB_PREFIX="${PIVX_ROOT}/db4"
+# Pick some path to install BDB to, here we create a directory within the stomp directory
+BDB_PREFIX="${STOMP_ROOT}/db4"
 mkdir -p $BDB_PREFIX
 
 # Fetch the source and verify that it is not tampered with
@@ -190,7 +190,7 @@ cd db-4.8.30.NC/build_unix/
 make install
 
 # Configure PIVX Core to use our own-built instance of BDB
-cd $PIVX_ROOT
+cd $STOMP_ROOT
 ./configure (other args...) LDFLAGS="-L${BDB_PREFIX}/lib/" CPPFLAGS="-I${BDB_PREFIX}/include/"
 ```
 
@@ -207,7 +207,7 @@ If you need to build Boost yourself:
 
 Security
 --------
-To help make your PIVX installation more secure by making certain attacks impossible to
+To help make your STOMP installation more secure by making certain attacks impossible to
 exploit even if a vulnerability is found, binaries are hardened by default.
 This can be disabled with:
 
@@ -229,20 +229,20 @@ Hardening enables the following features:
 
     To test that you have built PIE executable, install scanelf, part of paxutils, and use:
 
-    	scanelf -e ./pivxd
+    	scanelf -e ./stompd
 
     The output should contain:
      TYPE
     ET_DYN
 
 * _Non-executable Stack_: If the stack is executable then trivial stack based buffer overflow exploits are possible if
-    vulnerable buffers are found. By default, pivx should be built with a non-executable stack
+    vulnerable buffers are found. By default, stomp should be built with a non-executable stack
     but if one of the libraries it uses asks for an executable stack or someone makes a mistake
     and uses a compiler extension which requires an executable stack, it will silently build an
     executable without the non-executable stack protection.
 
     To verify that the stack is non-executable after compiling use:
-    `scanelf -e ./pivxd`
+    `scanelf -e ./stompd`
 
     the output should contain:
 	STK/REL/PTL

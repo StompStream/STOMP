@@ -1,0 +1,8 @@
+/usr/bin/stomp-cli		--	gen_context(system_u:object_r:stomp_exec_t,s0)
+/usr/sbin/stompd		--	gen_context(system_u:object_r:stomp_exec_t,s0)
+/usr/lib(64)?/stomp/stompd		--	gen_context(system_u:object_r:stomp_exec_t,s0)
+
+/etc/stomp(/.*)?		gen_context(system_u:object_r:stomp_conf_t,s0)
+/var/lib/stomp(/.*)?		gen_context(system_u:object_r:stomp_var_lib_t,s0)
+
+(/var)?/run/stompd(/.*)?   gen_context(system_u:object_r:stomp_var_run_t,s0)
