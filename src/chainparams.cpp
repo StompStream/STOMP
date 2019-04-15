@@ -55,7 +55,7 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
     (0, uint256("0000063f4d58618fb238c1d42063d92f0ae20df4e782258b05ccd316b2944724"))
-    //(79, uint256("0000063f4d58618fb238c1d42063d92f0ae20df4e782258b05ccd316b2944724"))
+    //(260, uint256("0000063f4d58618fb238c1d42063d92f0ae20df4e782258b05ccd316b2944724"))
     //(630, uint256("9cf5b61600a1d8489b7295be8a12984104f533d2e0856ef00745168456eff215"))
     ;
 static const Checkpoints::CCheckpointData data = {
@@ -165,6 +165,7 @@ public:
         genesis.nTime = 1554250594;
         genesis.nBits = 0x1e0ffff0;
         genesis.nNonce = 3427615;
+        
 
         hashGenesisBlock = genesis.GetHash();
         assert(hashGenesisBlock == uint256("0x0000063f4d58618fb238c1d42063d92f0ae20df4e782258b05ccd316b2944724"));
@@ -185,7 +186,7 @@ public:
 
         convertSeed6(vFixedSeeds, pnSeed6_main, ARRAYLEN(pnSeed6_main));
 
-        fMiningRequiresPeers = true;
+        fMiningRequiresPeers = false;
         fAllowMinDifficultyBlocks = false;
         fDefaultConsistencyChecks = false;
         fRequireStandard = true;
@@ -209,7 +210,7 @@ public:
         nMaxZerocoinSpendsPerTransaction = 7; // Assume about 20kb each
         nMinZerocoinMintFee = 1 * CENT; //high fee required for zerocoin mints
         nMintRequiredConfirmations = 20; //the maximum amount of confirmations until accumulated in 19
-        nRequiredAccumulation = 1;
+        nRequiredAccumulation = 100;
         nDefaultSecurityLevel = 100; //full security level for accumulators
         nZerocoinHeaderVersion = 5; //Block headers must be this version once zerocoin is active
         nZerocoinRequiredStakeDepth = 200; //The required confirmations for a zstmp to be stakable

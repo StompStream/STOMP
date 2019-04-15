@@ -2140,8 +2140,8 @@ bool CWallet::SelectStakeCoins(std::list<std::unique_ptr<CStakeInput> >& listInp
             if (out.nDepth < (out.tx->IsCoinStake() ? Params().COINBASE_MATURITY() : 10))
                 continue;
             
-            if (out.tx->vout[out.i].nValue < Params().StakeInputMinimal())
-                continue;
+            //if (out.tx->vout[out.i].nValue < Params().StakeInputMinimal())
+            //    continue;
 
             //add to our stake set
             nAmountSelected += out.tx->vout[out.i].nValue;
@@ -2212,8 +2212,8 @@ bool CWallet::MintableCoins()
             }
             
             // Make sure minimum amount is met for staking.
-            if (out.Value() <= nMinAmount)
-                continue;
+            //if (out.Value() <= nMinAmount)
+            //    continue;
 
             if (GetAdjustedTime() - nTxTime > nStakeMinAge)
                 return true;
@@ -3034,7 +3034,7 @@ bool CWallet::CreateCoinStake(
         //make sure that enough time has elapsed between
         CBlockIndex* pindex = stakeInput->GetIndexFrom();
         if (!pindex || pindex->nHeight < 1) {
-            LogPrintf("CreateCoinStake(): no pindexfrom\n");
+            LogPrint("debug","%s: no pindexfrom\n", __func__);
             continue;
         }
 

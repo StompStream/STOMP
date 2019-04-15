@@ -179,6 +179,7 @@ bool IsBlockValueValid(const CBlock& block, CAmount nExpectedValue, CAmount nMin
 {
     CBlockIndex* pindexPrev = chainActive.Tip();
     if (pindexPrev == NULL) return true;
+    
 
     int nHeight = 0;
     if (pindexPrev->GetBlockHash() == block.hashPrevBlock) {
@@ -226,6 +227,8 @@ bool IsBlockValueValid(const CBlock& block, CAmount nExpectedValue, CAmount nMin
 
 bool IsBlockPayeeValid(const CBlock& block, int nBlockHeight)
 {
+    LogPrint("debug","%s nBlockHeight:%d\n", __func__, nBlockHeight);
+    
     TrxValidationStatus transactionStatus = TrxValidationStatus::InValid;
 
     if (!masternodeSync.IsSynced()) { //there is no budget data to use to check anything -- find the longest chain
@@ -312,9 +315,10 @@ void CMasternodePayments::FillBlockPayee(CMutableTransaction& txNew, int64_t nFe
 
     bool hasPayment = true;
     CScript payee;
+    const int nTargetHeight = pindexPrev->nHeight + 1;
 
     //spork
-    if (!masternodePayments.GetBlockPayee(pindexPrev->nHeight + 1, payee)) {
+    if (!masternodePayments.GetBlockPayee(nTargetHeight, payee)) {
         //no masternode detected
         CMasternode* winningNode = mnodeman.GetCurrentMasterNode(1);
         if (winningNode) {
@@ -325,10 +329,10 @@ void CMasternodePayments::FillBlockPayee(CMutableTransaction& txNew, int64_t nFe
         }
     }
 
-    CAmount blockValue = GetBlockValue(pindexPrev->nHeight);
-    CAmount masternodePayment = GetMasternodePayment(pindexPrev->nHeight, blockValue, fZSTMPStake);
-    CAmount rewardPayment = GetRewardsPayment(pindexPrev->nHeight, blockValue, fZSTMPStake);
-    CAmount devPayment = GetDevelopersPayment(pindexPrev->nHeight, blockValue, fZSTMPStake);
+    CAmount blockValue = GetBlockValue(nTargetHeight);
+    CAmount masternodePayment = GetMasternodePayment(nTargetHeight, blockValue, fZSTMPStake);
+    CAmount rewardPayment = GetRewardsPayment(nTargetHeight, blockValue, fZSTMPStake);
+    CAmount devPayment = GetDevelopersPayment(nTargetHeight, blockValue, fZSTMPStake);
 
     if (hasPayment) {
         if (fProofOfStake) {
@@ -366,7 +370,7 @@ void CMasternodePayments::FillBlockPayee(CMutableTransaction& txNew, int64_t nFe
         ExtractDestination(payee, address1);
         CBitcoinAddress address2(address1);
 
-        LogPrint("masternode","Masternode payment of %s to %s\n", FormatMoney(masternodePayment).c_str(), address2.ToString().c_str());
+        LogPrint("masternode","%s: Masternode payment of %s to %s nHeigh:%d\n", __func__, FormatMoney(masternodePayment).c_str(), address2.ToString().c_str(), nTargetHeight);
     }
     else {
         if (!fProofOfStake) {

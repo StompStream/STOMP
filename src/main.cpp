@@ -1890,28 +1890,30 @@ int64_t GetBlockValue(int nHeight)
     } else if (nHeight < Params().LAST_POW_BLOCK()) {
         ret = COIN * 1;
     }
-    else if (nHeight < 30000) {
+    else if (nHeight <= 30000) {
         ret = COIN * 4;
     }
-    else if (nHeight < 60000) {
+    else if (nHeight <= 60000) {
         ret = COIN * 6;
     }
-    else if (nHeight < 120000) {
+    else if (nHeight <= 120000) {
         ret = COIN * 10;
     }
-    else if (nHeight < 200000) {
+    else if (nHeight <= 200000) {
         ret = COIN * 14;
     }
-    else if (nHeight < 400000) {
+    else if (nHeight <= 400000) {
         ret = COIN * 10;
     }
-    else if (nHeight < 800000) {
+    else if (nHeight <= 800000) {
         ret = COIN * 8;
     }
     else {
         ret = COIN * 5;
     }
 
+    LogPrint("debug","%s: Reward:%s nHeight:%s\n", __func__, FormatMoney(ret), nHeight);
+    
     return ret;
 }
 
@@ -1921,17 +1923,17 @@ int64_t GetMasternodePayment(int nHeight, int64_t blockValue, bool isZSTMPStake)
     
     if (isZSTMPStake)
         return 0;
-    
+
     if(nHeight < Params().LAST_POW_BLOCK()){
         ret = blockValue * 0;
     }
-    else if(nHeight < 30000){
+    else if(nHeight <= 30000){
         ret = blockValue * 65 / 100;
     }
-    else if(nHeight < 60000){
+    else if(nHeight <= 60000){
         ret = blockValue * 70 / 100;
     }
-    else if(nHeight < 120000){
+    else if(nHeight <= 120000){
         ret = blockValue * 75 / 100;
     }
     else {
@@ -2982,7 +2984,10 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
     LogPrint("bench", "      - Connect %u transactions: %.2fms (%.3fms/tx, %.3fms/txin) [%.2fs]\n", (unsigned)block.vtx.size(), 0.001 * (nTime1 - nTimeStart), 0.001 * (nTime1 - nTimeStart) / block.vtx.size(), nInputs <= 1 ? 0 : 0.001 * (nTime1 - nTimeStart) / (nInputs - 1), nTimeConnect * 0.000001);
 
     //PoW phase redistributed fees to miner. PoS stage destroys fees.
-    CAmount nExpectedMint = GetBlockValue(pindex->pprev->nHeight);
+    CAmount nExpectedMint = GetBlockValue(pindex->nHeight);
+    
+    LogPrint("debug","%s nHeigh:%d actual=%s \n", __func__,  pindex->nHeight, FormatMoney(nExpectedMint));
+    
     if (block.IsProofOfWork())
         nExpectedMint += nFees;
 
@@ -3965,8 +3970,11 @@ bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bo
             if (block.vtx[i].IsCoinStake())
                 return state.DoS(100, error("CheckBlock() : more than one coinstake"));
             
-        if (block.vtx[1].vout[1].nValue < Params().StakeInputMinimal())
+        if ((chainActive.Tip() != NULL) && 
+            (chainActive.Tip()->nHeight > 2000) && 
+            (block.vtx[1].vout[1].nValue < Params().StakeInputMinimal())) {
                 return state.DoS(100, error("CheckBlock() : stake under min. stake value"));
+        }
     }
 
     // ----------- swiftTX transaction scanning -----------

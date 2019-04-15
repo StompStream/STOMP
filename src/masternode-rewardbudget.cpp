@@ -15,38 +15,28 @@ void CRewardBudget::PrepareBudget() {
 
 bool CRewardBudget::IsTransactionValid(const CTransaction& txNew, int nBlockHeight)
 {
-    PrepareBudget();
-
-    CBlockIndex* pindexPrev = chainActive.Tip();
-    if (!pindexPrev){
-        return false;
-    }
-
-    if(txNew.IsZerocoinSpend()){
+    if (nBlockHeight < Params().LAST_POW_BLOCK()) {
         return true;
     }
-
-    CAmount blockreward = GetBlockValue(pindexPrev->nHeight);
-    CAmount budgetPayment = GetRewardsPayment(pindexPrev->nHeight, blockreward, txNew.IsZerocoinSpend());
-
-    bool found = false;
-    int i = 0;
     
-    BOOST_FOREACH (CTxOut out, txNew.vout) {
+    PrepareBudget();
+    
+    CAmount blockreward = GetBlockValue(nBlockHeight);
+    CAmount budgetPayment = GetRewardsPayment(nBlockHeight, blockreward, txNew.IsZerocoinSpend());
+
+    CAmount nAmount = 0;
+    BOOST_FOREACH(const CTxOut& out, txNew.vout) {
         if (payee == out.scriptPubKey) {
-            if (i > 0 && out.nValue >= budgetPayment) {
-                found = true;
-            }
-            else{
-                LogPrintf("CRewardBudget::IsTransactionValid - Found valid Reward Budget address, but nHeight:%d amount %d expected:%d\n", pindexPrev->nHeight, out.nValue, budgetPayment);
-            }
+            nAmount += out.nValue;
         }
-        i++;
     }
+    
+    bool fundValid = nAmount >= budgetPayment;
 
-    if (!found) {
-        LogPrint("debug","CRewardBudget::IsTransactionValid - Missing required payment %d for block %d\n", budgetPayment, pindexPrev->nHeight);
+    if (!fundValid) {
+        error("%s: invalid reward fund payment detected, expected %s, payed %s, tx:\n%s\n",
+                __func__, FormatMoney(budgetPayment), FormatMoney(nAmount), txNew.ToString().c_str());
     }
-
-    return found;
+    
+    return fundValid;
 }
