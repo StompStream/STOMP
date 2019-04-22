@@ -495,7 +495,7 @@ int SearchMintHeightOf(CBigNum value){
 
 void AccumulateRange(CoinWitnessData* coinWitness, int nHeightEnd)
 {
-    bool fDoubleCounted = false;
+    //bool fDoubleCounted = false;
     int64_t nTimeStart = GetTimeMicros();
     int nHeightStart = std::max(coinWitness->nHeightAccStart, coinWitness->nHeightAccEnd + 1);
     CBlockIndex* pindex = chainActive[nHeightStart];
@@ -604,7 +604,7 @@ bool calculateAccumulatedBlocksFor(
         list<CBigNum>& ret,
         string& strError
 ){
-    bool fDoubleCounted = false;
+    //bool fDoubleCounted = false;
     int nMintsAdded = 0;
     while (pindex) {
 
@@ -661,7 +661,7 @@ bool calculateAccumulatedBlocksFor(
 ){
 
     int amountOfScannedBlocks = 0;
-    bool fDoubleCounted = false;
+    //bool fDoubleCounted = false;
     int nMintsAdded = 0;
     while (pindex) {
 
