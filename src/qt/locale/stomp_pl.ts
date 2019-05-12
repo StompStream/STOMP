@@ -659,7 +659,7 @@ odszyfrowany i aktualnie odblokowany tylko do anonimizacji i stakingu</translati
         <translation>Pasek narzędzi</translation>
     </message>
     <message>
-        <source>PIVX Core</source>
+        <source>STOMP Core</source>
         <translation>Rdzeń STOMP</translation>
     </message>
     <message>
@@ -683,12 +683,12 @@ odszyfrowany i aktualnie odblokowany tylko do anonimizacji i stakingu</translati
         <translation>Przeglądaj masternodes</translation>
     </message>
     <message>
-        <source>&amp;About PIVX Core</source>
-        <translation>&amp;O PIVX Core</translation>
+        <source>&amp;About STOMP Core</source>
+        <translation>&amp;O STOMP Core</translation>
     </message>
     <message>
-        <source>Show information about PIVX Core</source>
-        <translation>Pokaż informacje o PIVX Core</translation>
+        <source>Show information about STOMP Core</source>
+        <translation>Pokaż informacje o STOMP Core</translation>
     </message>
     <message>
         <source>Modify configuration options for STOMP</source>
@@ -743,12 +743,12 @@ odszyfrowany i aktualnie odblokowany tylko do anonimizacji i stakingu</translati
         <translation>Okno eksplorera bloków</translation>
     </message>
     <message>
-        <source>Show the PIVX Core help message to get a list with possible STOMP command-line options</source>
+        <source>Show the STOMP Core help message to get a list with possible STOMP command-line options</source>
         <translation>Pokaż wiadomość pomocy rdzenia STOMP, aby dostać listę możliwych opcji STOMP command-line</translation>
     </message>
     <message>
-        <source>PIVX Core client</source>
-        <translation>PIVX Core klient</translation>
+        <source>STOMP Core client</source>
+        <translation>STOMP Core klient</translation>
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to STOMP network</source>
@@ -1292,7 +1292,7 @@ MultiWysyłlka: %1</translation>
         <translation>Wersja</translation>
     </message>
     <message>
-        <source>PIVX Core</source>
+        <source>STOMP Core</source>
         <translation>Rdzeń STOMP</translation>
     </message>
     <message>
@@ -1300,8 +1300,8 @@ MultiWysyłlka: %1</translation>
         <translation>(%1-bit)</translation>
     </message>
     <message>
-        <source>About PIVX Core</source>
-        <translation>O PIVX Core</translation>
+        <source>About STOMP Core</source>
+        <translation>O STOMP Core</translation>
     </message>
     <message>
         <source>Command-line options</source>
@@ -1347,16 +1347,16 @@ MultiWysyłlka: %1</translation>
         <translation>Zapraszamy</translation>
     </message>
     <message>
-        <source>Welcome to PIVX Core.</source>
-        <translation>Zapraszamy do PIVX Core</translation>
+        <source>Welcome to STOMP Core.</source>
+        <translation>Zapraszamy do STOMP Core</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where PIVX Core will store its data.</source>
-        <translation>Ponieważ program jest uruchamiany po raz pierwszy, możesz wybrać miejsce, w którym PIVX Core będzie przechowywać swoje dane.</translation>
+        <source>As this is the first time the program is launched, you can choose where STOMP Core will store its data.</source>
+        <translation>Ponieważ program jest uruchamiany po raz pierwszy, możesz wybrać miejsce, w którym STOMP Core będzie przechowywać swoje dane.</translation>
     </message>
     <message>
-        <source>PIVX Core will download and store a copy of the STOMP block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>PIVX Core pobierze i zapisze kopię łańcucha bloków STOMP. Przynajmniej %1 GB danych zostanie zapisanych w tym katalogu, a jego liczba będzie rosnąć z czasem. Portfel zostanie również zapisany w tym katalogu.</translation>
+        <source>STOMP Core will download and store a copy of the STOMP block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>STOMP Core pobierze i zapisze kopię łańcucha bloków STOMP. Przynajmniej %1 GB danych zostanie zapisanych w tym katalogu, a jego liczba będzie rosnąć z czasem. Portfel zostanie również zapisany w tym katalogu.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -1367,7 +1367,7 @@ MultiWysyłlka: %1</translation>
         <translation>Użyj niestandardowej ścieżki danych</translation>
     </message>
     <message>
-        <source>PIVX Core</source>
+        <source>STOMP Core</source>
         <translation>Rdzeń STOMP</translation>
     </message>
     <message>
@@ -3239,8 +3239,8 @@ Proszę być cierpliwym...</translation>
         <translation>%1 ms</translation>
     </message>
     <message>
-        <source>PIVX Core</source>
-        <translation>PIVX Core</translation>
+        <source>STOMP Core</source>
+        <translation>STOMP Core</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" does not exist.</source>
@@ -3259,8 +3259,8 @@ Proszę być cierpliwym...</translation>
         <translation>Błąd odczytu pliku konfiguracyjnego masternode: %1</translation>
     </message>
     <message>
-        <source>PIVX Core didn't yet exit safely...</source>
-        <translation>PIVX Core nie zamkną się jeszcze bezpiecznie ...</translation>
+        <source>STOMP Core didn't yet exit safely...</source>
+        <translation>STOMP Core nie zamkną się jeszcze bezpiecznie ...</translation>
     </message>
 </context>
 <context>
@@ -4299,8 +4299,8 @@ Proszę być cierpliwym...</translation>
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>PIVX Core is shutting down...</source>
-        <translation>PIVX Core się wyłącza ...</translation>
+        <source>STOMP Core is shutting down...</source>
+        <translation>STOMP Core się wyłącza ...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
@@ -4449,8 +4449,8 @@ Proszę być cierpliwym...</translation>
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>PIVX Core</source>
-        <translation>PIVX Core</translation>
+        <source>STOMP Core</source>
+        <translation>STOMP Core</translation>
     </message>
     <message>
         <source>Version %1</source>
@@ -4465,8 +4465,8 @@ Proszę być cierpliwym...</translation>
         <translation>Twórcy Dash Core</translation>
     </message>
     <message>
-        <source>The PIVX Core developers</source>
-        <translation>Twórcy PIVX Core</translation>
+        <source>The STOMP Core developers</source>
+        <translation>Twórcy STOMP Core</translation>
     </message>
     <message>
         <source>[testnet]</source>
@@ -5134,8 +5134,8 @@ Proszę być cierpliwym...</translation>
         <translation>Obliczony punkt kontrolny akumulatora nie jest tym, co jest rejestrowane przez indeks bloku</translation>
     </message>
     <message>
-        <source>Cannot obtain a lock on data directory %s. PIVX Core is probably already running.</source>
-        <translation>Nie można uzyskać dostępu do katalogu danych %s. PIVX Core prawdopodobnie już działa.</translation>
+        <source>Cannot obtain a lock on data directory %s. STOMP Core is probably already running.</source>
+        <translation>Nie można uzyskać dostępu do katalogu danych %s. STOMP Core prawdopodobnie już działa.</translation>
     </message>
     <message>
         <source>Change automatic finalized budget voting behavior. mode=auto: Vote for only exact finalized budget match to my generated budget. (string, default: auto)</source>
@@ -5250,8 +5250,8 @@ Proszę być cierpliwym...</translation>
         <translation>Utrzymuj pełny indeks transakcji, używany przez wywołanie getrawtransaction rpc (domyślnie:%u)</translation>
     </message>
     <message>
-        <source>Unable to bind to %s on this computer. PIVX Core is probably already running.</source>
-        <translation>Nie można podłączyć %s na tym komputerze. PIVX Core prawdopodobnie już działa.</translation>
+        <source>Unable to bind to %s on this computer. STOMP Core is probably already running.</source>
+        <translation>Nie można podłączyć %s na tym komputerze. STOMP Core prawdopodobnie już działa.</translation>
     </message>
     <message>
         <source>Unable to locate enough Obfuscation denominated funds for this transaction.</source>
@@ -5390,8 +5390,8 @@ Proszę być cierpliwym...</translation>
         <translation>Wystąpił błąd podczas ładowania pliku wallet.dat: Portfel uszkodzony</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of PIVX Core</source>
-        <translation>Błąd ładowania pliku wallet.dat: Portfel wymaga nowszej wersji PIVX Core</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of STOMP Core</source>
+        <translation>Błąd ładowania pliku wallet.dat: Portfel wymaga nowszej wersji STOMP Core</translation>
     </message>
     <message>
         <source>Error opening block database</source>
@@ -5858,8 +5858,8 @@ Proszę być cierpliwym...</translation>
         <translation>Portfel jest zablokowany.</translation>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart PIVX Core to complete</source>
-        <translation>Portfel musiał zostać przepisany: zrestartuj PIVX Core, aby zakończyć</translation>
+        <source>Wallet needed to be rewritten: restart STOMP Core to complete</source>
+        <translation>Portfel musiał zostać przepisany: zrestartuj STOMP Core, aby zakończyć</translation>
     </message>
     <message>
         <source>Wallet options:</source>

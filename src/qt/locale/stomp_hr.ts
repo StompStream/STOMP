@@ -617,8 +617,8 @@
         <translation>Alatna traka kartica</translation>
     </message>
     <message>
-        <source>PIVX Core</source>
-        <translation>PIVX Core</translation>
+        <source>STOMP Core</source>
+        <translation>STOMP Core</translation>
     </message>
     <message>
         <source>Send coins to a STOMP address</source>
@@ -641,12 +641,12 @@
         <translation>Pregledajte masternode</translation>
     </message>
     <message>
-        <source>&amp;About PIVX Core</source>
-        <translation>&amp; O PIVX Coreu</translation>
+        <source>&amp;About STOMP Core</source>
+        <translation>&amp; O STOMP Coreu</translation>
     </message>
     <message>
-        <source>Show information about PIVX Core</source>
-        <translation>Prikaz informacija o PIVX Coreu</translation>
+        <source>Show information about STOMP Core</source>
+        <translation>Prikaz informacija o STOMP Coreu</translation>
     </message>
     <message>
         <source>Modify configuration options for STOMP</source>
@@ -685,8 +685,8 @@
         <translation>Otvori konfiguracijsku datoteku za Masternode</translation>
     </message>
     <message>
-        <source>PIVX Core client</source>
-        <translation>PIVX Core klijent</translation>
+        <source>STOMP Core client</source>
+        <translation>STOMP Core klijent</translation>
     </message>
     <message>
         <source>Importing blocks from disk...</source>
@@ -922,15 +922,15 @@
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>PIVX Core</source>
-        <translation>PIVX Core</translation>
+        <source>STOMP Core</source>
+        <translation>STOMP Core</translation>
     </message>
     </context>
 <context>
     <name>Intro</name>
     <message>
-        <source>PIVX Core</source>
-        <translation>PIVX Core</translation>
+        <source>STOMP Core</source>
+        <translation>STOMP Core</translation>
     </message>
     <message>
         <source>Error</source>
@@ -1077,8 +1077,8 @@
         <translation>N/A</translation>
     </message>
     <message>
-        <source>PIVX Core</source>
-        <translation>PIVX Core</translation>
+        <source>STOMP Core</source>
+        <translation>STOMP Core</translation>
     </message>
     </context>
 <context>
@@ -1341,8 +1341,8 @@
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>PIVX Core is shutting down...</source>
-        <translation>PIVX Core se gasi...</translation>
+        <source>STOMP Core is shutting down...</source>
+        <translation>STOMP Core se gasi...</translation>
     </message>
     </context>
 <context>
@@ -1427,8 +1427,8 @@
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>PIVX Core</source>
-        <translation>PIVX Core</translation>
+        <source>STOMP Core</source>
+        <translation>STOMP Core</translation>
     </message>
     <message>
         <source>Version %1</source>

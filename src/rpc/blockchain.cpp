@@ -1,7 +1,7 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The STOMP developers
+// Copyright (c) 2015-2018 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -16,8 +16,9 @@
 #include "utilmoneystr.h"
 #include "zstmp/accumulatormap.h"
 #include "zstmp/accumulators.h"
-#include "wallet.h"
+#include "wallet/wallet.h"
 #include "zstmpchain.h"
+
 #include <stdint.h>
 #include <fstream>
 #include <iostream>
@@ -825,8 +826,8 @@ UniValue verifychain(const UniValue& params, bool fHelp)
 /** Implementation of IsSuperMajority with better feedback */
 static UniValue SoftForkMajorityDesc(int minVersion, CBlockIndex* pindex, int nRequired)
 {
-    int nFound = 0;
-    CBlockIndex* pstart = pindex;
+    //int nFound = 0;
+    //CBlockIndex* pstart = pindex;
     //for (int i = 0; i < Params().ToCheckBlockUpgradeMajority() && pstart != NULL; i++)
     //{
     //    if (pstart->nVersion >= minVersion)
@@ -834,9 +835,9 @@ static UniValue SoftForkMajorityDesc(int minVersion, CBlockIndex* pindex, int nR
     //    pstart = pstart->pprev;
     //}
     UniValue rv(UniValue::VOBJ);
-    rv.push_back(Pair("status", nFound >= nRequired));
-    rv.push_back(Pair("found", nFound));
-    rv.push_back(Pair("required", nRequired));
+    //rv.push_back(Pair("status", nFound >= nRequired));
+    //rv.push_back(Pair("found", nFound));
+    //rv.push_back(Pair("required", nRequired));
     //rv.push_back(Pair("window", Params().ToCheckBlockUpgradeMajority()));
     return rv;
 }

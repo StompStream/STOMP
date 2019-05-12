@@ -645,7 +645,7 @@
         <translation>Værktøjslinier</translation>
     </message>
     <message>
-        <source>PIVX Core</source>
+        <source>STOMP Core</source>
         <translation>STOMP kerne</translation>
     </message>
     <message>
@@ -669,11 +669,11 @@
         <translation>Vis masternoder</translation>
     </message>
     <message>
-        <source>&amp;About PIVX Core</source>
+        <source>&amp;About STOMP Core</source>
         <translation>&amp;Om STOMP kerne</translation>
     </message>
     <message>
-        <source>Show information about PIVX Core</source>
+        <source>Show information about STOMP Core</source>
         <translation>Vis information om STOMP kerne</translation>
     </message>
     <message>
@@ -729,11 +729,11 @@
         <translation>Blockexplorer vindue</translation>
     </message>
     <message>
-        <source>Show the PIVX Core help message to get a list with possible STOMP command-line options</source>
+        <source>Show the STOMP Core help message to get a list with possible STOMP command-line options</source>
         <translation>Vis hjelpetekster fra STOMP kernen for at få en liste med mulige STOMP kommandolinie-startparametre</translation>
     </message>
     <message>
-        <source>PIVX Core client</source>
+        <source>STOMP Core client</source>
         <translation>STOMP kerneklient</translation>
     </message>
     <message numerus="yes">
@@ -1242,7 +1242,7 @@ Adresse: %4
         <translation>version</translation>
     </message>
     <message>
-        <source>PIVX Core</source>
+        <source>STOMP Core</source>
         <translation>STOMP kerne</translation>
     </message>
     <message>
@@ -1250,7 +1250,7 @@ Adresse: %4
         <translation>(%1-bit)</translation>
     </message>
     <message>
-        <source>About PIVX Core</source>
+        <source>About STOMP Core</source>
         <translation>om STOMP kerne</translation>
     </message>
     <message>
@@ -1297,15 +1297,15 @@ Adresse: %4
         <translation>Velkommen</translation>
     </message>
     <message>
-        <source>Welcome to PIVX Core.</source>
+        <source>Welcome to STOMP Core.</source>
         <translation>Velkommen til STOMP kerne</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where PIVX Core will store its data.</source>
+        <source>As this is the first time the program is launched, you can choose where STOMP Core will store its data.</source>
         <translation>Da det er første gang programmet startes, kan De vælge hvor STOMP kernen skal lagre sine data</translation>
     </message>
     <message>
-        <source>PIVX Core will download and store a copy of the STOMP block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <source>STOMP Core will download and store a copy of the STOMP block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
         <translation>STOMP kernen vil nu hente og gemme en kopi af STOMP blockchain. Der skal være mindst %1GB ledigt på lagermediet, og behovet vil stige efterhånden som tiden går. Selve tegnebogen vil også blive gemt her.</translation>
     </message>
     <message>
@@ -1317,7 +1317,7 @@ Adresse: %4
         <translation>Anvend en mappe valgt af brugeren</translation>
     </message>
     <message>
-        <source>PIVX Core</source>
+        <source>STOMP Core</source>
         <translation>STOMP kerne</translation>
     </message>
     <message>
@@ -3034,7 +3034,7 @@ Enten mint højere nomineringer (så færre input er nødvendige) eller reducere
         <translation>%1 ms</translation>
     </message>
     <message>
-        <source>PIVX Core</source>
+        <source>STOMP Core</source>
         <translation>STOMP kerne</translation>
     </message>
     </context>
@@ -4050,7 +4050,7 @@ Enten mint højere nomineringer (så færre input er nødvendige) eller reducere
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>PIVX Core is shutting down...</source>
+        <source>STOMP Core is shutting down...</source>
         <translation>STOMP kernen lukker ned</translation>
     </message>
     <message>
@@ -4200,7 +4200,7 @@ Enten mint højere nomineringer (så færre input er nødvendige) eller reducere
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>PIVX Core</source>
+        <source>STOMP Core</source>
         <translation>STOMP kerne</translation>
     </message>
     <message>
@@ -4216,7 +4216,7 @@ Enten mint højere nomineringer (så færre input er nødvendige) eller reducere
         <translation>DASH "core" udviklerne</translation>
     </message>
     <message>
-        <source>The PIVX Core developers</source>
+        <source>The STOMP Core developers</source>
         <translation>STOMP "core" udviklerne</translation>
     </message>
     <message>
@@ -4877,7 +4877,7 @@ Enten mint højere nomineringer (så færre input er nødvendige) eller reducere
         <translation>Beregnet akkumulator kontrolpunkt er ikke det, der er registreret af blok indeks</translation>
     </message>
     <message>
-        <source>Cannot obtain a lock on data directory %s. PIVX Core is probably already running.</source>
+        <source>Cannot obtain a lock on data directory %s. STOMP Core is probably already running.</source>
         <translation>Kan ikke låse datamappen %s. STOMP core kører sandsynligvis allerede.</translation>
     </message>
     <message>
@@ -5054,7 +5054,7 @@ Enten mint højere nomineringer (så færre input er nødvendige) eller reducere
         <translation>Dette produkt anvender software udviklet i OpenSSL projektet til brug i OpenSSL værktøjssættet &lt;https://www.openssl.org/&gt; og kryptosoftware skrevet afEric Young og UPnP software skrevet af Thomas Bernard.</translation>
     </message>
     <message>
-        <source>Unable to bind to %s on this computer. PIVX Core is probably already running.</source>
+        <source>Unable to bind to %s on this computer. STOMP Core is probably already running.</source>
         <translation>Det var ikke muligt at forbinde %s på denne computer. STOMP kører sandsynligvis allerede.</translation>
     </message>
     <message>
@@ -5082,7 +5082,7 @@ Enten mint højere nomineringer (så færre input er nødvendige) eller reducere
         <translation>Advarsel! -paytxfee er sat meget højt. Det er dette gebyr De kommer til at betale for transaktionen, hvis De gennemfører. </translation>
     </message>
     <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong PIVX Core will not work properly.</source>
+        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong STOMP Core will not work properly.</source>
         <translation>Advarsel! Kontroller at computerens dato og tid er korrekt indstillet. Hvis tiden ikke er rigtig, vil STOMP core ikke fungere ordentligt.</translation>
     </message>
     <message>
@@ -5322,7 +5322,7 @@ Enten mint højere nomineringer (så færre input er nødvendige) eller reducere
         <translation>Fejl ved indlæsning af wallet.dat: Tegnebogen er beskadiget</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of PIVX Core</source>
+        <source>Error loading wallet.dat: Wallet requires newer version of STOMP Core</source>
         <translation>Fejl ved indlæsning af wallet.dat: Tegnebogen kræver en nyere version af STOMP core</translation>
     </message>
     <message>
@@ -5446,7 +5446,7 @@ Enten mint højere nomineringer (så færre input er nødvendige) eller reducere
         <translation>Info:</translation>
     </message>
     <message>
-        <source>Initialization sanity check failed. PIVX Core is shutting down.</source>
+        <source>Initialization sanity check failed. STOMP Core is shutting down.</source>
         <translation>Initiering af sanitetskontrollen fejlede. STOMP core lukker ned. </translation>
     </message>
     <message>
@@ -6254,7 +6254,7 @@ Enten mint højere nomineringer (så færre input er nødvendige) eller reducere
         <translation>Tegnebogen er låst</translation>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart PIVX Core to complete</source>
+        <source>Wallet needed to be rewritten: restart STOMP Core to complete</source>
         <translation>Tegnebogen måtte genskrives. Genstart STOMP core for at gøre færdig</translation>
     </message>
     <message>

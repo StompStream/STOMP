@@ -649,8 +649,8 @@
         <translation>Tabs toolbar</translation>
     </message>
     <message>
-        <source>PIVX Core</source>
-        <translation>PIVX Core</translation>
+        <source>STOMP Core</source>
+        <translation>STOMP Core</translation>
     </message>
     <message>
         <source>Send coins to a STOMP address</source>
@@ -673,12 +673,12 @@
         <translation>Browse masternodes</translation>
     </message>
     <message>
-        <source>&amp;About PIVX Core</source>
-        <translation>&amp;About PIVX Core</translation>
+        <source>&amp;About STOMP Core</source>
+        <translation>&amp;About STOMP Core</translation>
     </message>
     <message>
-        <source>Show information about PIVX Core</source>
-        <translation>Show information about PIVX Core</translation>
+        <source>Show information about STOMP Core</source>
+        <translation>Show information about STOMP Core</translation>
     </message>
     <message>
         <source>Modify configuration options for STOMP</source>
@@ -733,12 +733,12 @@
         <translation>Block explorer window</translation>
     </message>
     <message>
-        <source>Show the PIVX Core help message to get a list with possible STOMP command-line options</source>
-        <translation>Show the PIVX Core help message to get a list with possible STOMP command-line options</translation>
+        <source>Show the STOMP Core help message to get a list with possible STOMP command-line options</source>
+        <translation>Show the STOMP Core help message to get a list with possible STOMP command-line options</translation>
     </message>
     <message>
-        <source>PIVX Core client</source>
-        <translation>PIVX Core client</translation>
+        <source>STOMP Core client</source>
+        <translation>STOMP Core client</translation>
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to STOMP network</source>
@@ -1246,16 +1246,16 @@ Address: %4
         <translation>version</translation>
     </message>
     <message>
-        <source>PIVX Core</source>
-        <translation>PIVX Core</translation>
+        <source>STOMP Core</source>
+        <translation>STOMP Core</translation>
     </message>
     <message>
         <source>(%1-bit)</source>
         <translation>(%1-bit)</translation>
     </message>
     <message>
-        <source>About PIVX Core</source>
-        <translation>About PIVX Core</translation>
+        <source>About STOMP Core</source>
+        <translation>About STOMP Core</translation>
     </message>
     <message>
         <source>Command-line options</source>
@@ -1301,16 +1301,16 @@ Address: %4
         <translation>Welcome</translation>
     </message>
     <message>
-        <source>Welcome to PIVX Core.</source>
-        <translation>Welcome to PIVX Core.</translation>
+        <source>Welcome to STOMP Core.</source>
+        <translation>Welcome to STOMP Core.</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where PIVX Core will store its data.</source>
-        <translation>As this is the first time the program is launched, you can choose where PIVX Core will store its data.</translation>
+        <source>As this is the first time the program is launched, you can choose where STOMP Core will store its data.</source>
+        <translation>As this is the first time the program is launched, you can choose where STOMP Core will store its data.</translation>
     </message>
     <message>
-        <source>PIVX Core will download and store a copy of the STOMP block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>PIVX Core will download and store a copy of the STOMP block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</translation>
+        <source>STOMP Core will download and store a copy of the STOMP block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>STOMP Core will download and store a copy of the STOMP block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -1321,8 +1321,8 @@ Address: %4
         <translation>Use a custom data directory:</translation>
     </message>
     <message>
-        <source>PIVX Core</source>
-        <translation>PIVX Core</translation>
+        <source>STOMP Core</source>
+        <translation>STOMP Core</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
@@ -3112,8 +3112,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>%1 ms</translation>
     </message>
     <message>
-        <source>PIVX Core</source>
-        <translation>PIVX Core</translation>
+        <source>STOMP Core</source>
+        <translation>STOMP Core</translation>
     </message>
     </context>
 <context>
@@ -4152,8 +4152,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>PIVX Core is shutting down...</source>
-        <translation>PIVX Core is shutting down...</translation>
+        <source>STOMP Core is shutting down...</source>
+        <translation>STOMP Core is shutting down...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
@@ -4302,8 +4302,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>PIVX Core</source>
-        <translation>PIVX Core</translation>
+        <source>STOMP Core</source>
+        <translation>STOMP Core</translation>
     </message>
     <message>
         <source>Version %1</source>
@@ -4318,8 +4318,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>The Dash Core developers</translation>
     </message>
     <message>
-        <source>The PIVX Core developers</source>
-        <translation>The PIVX Core developers</translation>
+        <source>The STOMP Core developers</source>
+        <translation>The STOMP Core developers</translation>
     </message>
     <message>
         <source>[testnet]</source>
@@ -4983,8 +4983,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Calculated accumulator checkpoint is not what is recorded by block index</translation>
     </message>
     <message>
-        <source>Cannot obtain a lock on data directory %s. PIVX Core is probably already running.</source>
-        <translation>Cannot obtain a lock on data directory %s. PIVX Core is probably already running.</translation>
+        <source>Cannot obtain a lock on data directory %s. STOMP Core is probably already running.</source>
+        <translation>Cannot obtain a lock on data directory %s. STOMP Core is probably already running.</translation>
     </message>
     <message>
         <source>Change automatic finalized budget voting behavior. mode=auto: Vote for only exact finalized budget match to my generated budget. (string, default: auto)</source>
@@ -5163,8 +5163,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Total length of network version string (%i) exceeds maximum length (%i). Reduce the number or size of uacomments.</translation>
     </message>
     <message>
-        <source>Unable to bind to %s on this computer. PIVX Core is probably already running.</source>
-        <translation>Unable to bind to %s on this computer. PIVX Core is probably already running.</translation>
+        <source>Unable to bind to %s on this computer. STOMP Core is probably already running.</source>
+        <translation>Unable to bind to %s on this computer. STOMP Core is probably already running.</translation>
     </message>
     <message>
         <source>Unable to locate enough Obfuscation denominated funds for this transaction.</source>
@@ -5191,8 +5191,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Warning: -paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</translation>
     </message>
     <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong PIVX Core will not work properly.</source>
-        <translation>Warning: Please check that your computer's date and time are correct! If your clock is wrong PIVX Core will not work properly.</translation>
+        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong STOMP Core will not work properly.</source>
+        <translation>Warning: Please check that your computer's date and time are correct! If your clock is wrong STOMP Core will not work properly.</translation>
     </message>
     <message>
         <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
@@ -5435,8 +5435,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Error loading wallet.dat: Wallet corrupted</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of PIVX Core</source>
-        <translation>Error loading wallet.dat: Wallet requires newer version of PIVX Core</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of STOMP Core</source>
+        <translation>Error loading wallet.dat: Wallet requires newer version of STOMP Core</translation>
     </message>
     <message>
         <source>Error opening block database</source>
@@ -5559,8 +5559,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Information</translation>
     </message>
     <message>
-        <source>Initialization sanity check failed. PIVX Core is shutting down.</source>
-        <translation>Initialisation sanity check failed. PIVX Core is shutting down.</translation>
+        <source>Initialization sanity check failed. STOMP Core is shutting down.</source>
+        <translation>Initialisation sanity check failed. STOMP Core is shutting down.</translation>
     </message>
     <message>
         <source>Input is not valid.</source>
@@ -6371,8 +6371,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Wallet is locked.</translation>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart PIVX Core to complete</source>
-        <translation>Wallet needed to be rewritten: restart PIVX Core to complete</translation>
+        <source>Wallet needed to be rewritten: restart STOMP Core to complete</source>
+        <translation>Wallet needed to be rewritten: restart STOMP Core to complete</translation>
     </message>
     <message>
         <source>Wallet options:</source>

@@ -1,7 +1,7 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The STOMP developers
+// Copyright (c) 2015-2018 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -12,7 +12,7 @@
 #include "main.h"
 #include "random.h"
 #include "sync.h"
-#include "ui_interface.h"
+#include "guiinterface.h"
 #include "util.h"
 #include "utilstrencodings.h"
 
@@ -304,6 +304,7 @@ static const CRPCCommand vRPCCommands[] =
         /* Block chain and UTXO */
         {"blockchain", "findserial", &findserial, true, false, false},
         {"blockchain", "getaccumulatorvalues", &getaccumulatorvalues, true, false, false},
+        {"blockchain", "calculateaccumulatorvalues", &calculateaccumulatorvalues, true, false, false},
         {"blockchain", "getaccumulatorwitness", &getaccumulatorwitness, true, false, false},
         {"blockchain", "getmintsinblocks", &getmintsinblocks, true, false, false},
         {"blockchain", "getserials", &getserials, true, false, false},
@@ -365,7 +366,6 @@ static const CRPCCommand vRPCCommands[] =
         { "hidden",             "waitforblockheight",     &waitforblockheight,     true,  true,  false  },
 
         /* STOMP features */
-        {"stomp", "masternode", &masternode, true, true, false},
         {"stomp", "listmasternodes", &listmasternodes, true, true, false},
         {"stomp", "getmasternodecount", &getmasternodecount, true, true, false},
         {"stomp", "masternodeconnect", &masternodeconnect, true, true, false},
@@ -381,7 +381,6 @@ static const CRPCCommand vRPCCommands[] =
         {"stomp", "getmasternodestatus", &getmasternodestatus, true, true, false},
         {"stomp", "getmasternodewinners", &getmasternodewinners, true, true, false},
         {"stomp", "getmasternodescores", &getmasternodescores, true, true, false},
-        {"stomp", "mnbudget", &mnbudget, true, true, false},
         {"stomp", "preparebudget", &preparebudget, true, true, false},
         {"stomp", "submitbudget", &submitbudget, true, true, false},
         {"stomp", "mnbudgetvote", &mnbudgetvote, true, true, false},

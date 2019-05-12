@@ -1,1 +1,2 @@
 contrib/stompd.bash-completion	stompd
+contrib/stomp-cli.bash-completion stomp-cli

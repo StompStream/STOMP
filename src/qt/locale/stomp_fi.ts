@@ -565,7 +565,7 @@
         <translation>&amp;Apua</translation>
     </message>
     <message>
-        <source>PIVX Core</source>
+        <source>STOMP Core</source>
         <translation>STOMP Ydin</translation>
     </message>
     <message>
@@ -585,11 +585,11 @@
         <translation>Selaa masternodeja</translation>
     </message>
     <message>
-        <source>&amp;About PIVX Core</source>
-        <translation>PIVX Core &amp;ytimestä</translation>
+        <source>&amp;About STOMP Core</source>
+        <translation>STOMP Core &amp;ytimestä</translation>
     </message>
     <message>
-        <source>Show information about PIVX Core</source>
+        <source>Show information about STOMP Core</source>
         <translation>Näytä tietoja STOMP Ytimestä</translation>
     </message>
     <message>
@@ -645,11 +645,11 @@
         <translation>Lohkon tutkija näkymä</translation>
     </message>
     <message>
-        <source>Show the PIVX Core help message to get a list with possible STOMP command-line options</source>
+        <source>Show the STOMP Core help message to get a list with possible STOMP command-line options</source>
         <translation>Näytä STOMP Ydin apuviesti saadaksesi lista mahdollisista STOMP komentolinja komennoista.</translation>
     </message>
     <message>
-        <source>PIVX Core client</source>
+        <source>STOMP Core client</source>
         <translation>STOMP Ydin asiakasohjelma</translation>
     </message>
     <message>
@@ -919,7 +919,7 @@
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>PIVX Core</source>
+        <source>STOMP Core</source>
         <translation>STOMP Ydin</translation>
     </message>
     <message>
@@ -938,11 +938,11 @@
         <translation>Tervetuloa</translation>
     </message>
     <message>
-        <source>Welcome to PIVX Core.</source>
+        <source>Welcome to STOMP Core.</source>
         <translation>Tervetuloa STOMP Ytimeen.</translation>
     </message>
     <message>
-        <source>PIVX Core</source>
+        <source>STOMP Core</source>
         <translation>STOMP Ydin</translation>
     </message>
     <message>
@@ -1466,7 +1466,7 @@
         <translation>Määrä</translation>
     </message>
     <message>
-        <source>PIVX Core</source>
+        <source>STOMP Core</source>
         <translation>STOMP Ydin</translation>
     </message>
     </context>
@@ -2054,7 +2054,7 @@
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>PIVX Core is shutting down...</source>
+        <source>STOMP Core is shutting down...</source>
         <translation>STOMP core sammuu...</translation>
     </message>
     <message>
@@ -2196,7 +2196,7 @@
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>PIVX Core</source>
+        <source>STOMP Core</source>
         <translation>STOMP Ydin</translation>
     </message>
     <message>
@@ -2212,7 +2212,7 @@
         <translation>Dash Core kehittäjät</translation>
     </message>
     <message>
-        <source>The PIVX Core developers</source>
+        <source>The STOMP Core developers</source>
         <translation>STOMP core kehittäjät</translation>
     </message>
     <message>
@@ -2565,8 +2565,8 @@
         <translation>Virhe ladattaessa wallet.dat tiedostoa: Lompakko korruptoitunut</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of PIVX Core</source>
-        <translation>Virhe ladattaessa wallet.dat tiedostoa: Lompakko vaatii uudemman version PIVX Coresta</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of STOMP Core</source>
+        <translation>Virhe ladattaessa wallet.dat tiedostoa: Lompakko vaatii uudemman version STOMP Coresta</translation>
     </message>
     <message>
         <source>Error reading from database, shutting down.</source>

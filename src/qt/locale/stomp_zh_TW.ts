@@ -557,8 +557,8 @@
         <translation>Tabs 工具列</translation>
     </message>
     <message>
-        <source>PIVX Core</source>
-        <translation>PIVX Core</translation>
+        <source>STOMP Core</source>
+        <translation>STOMP Core</translation>
     </message>
     <message>
         <source>Send coins to a STOMP address</source>
@@ -577,12 +577,12 @@
         <translation>瀏覽 Masternodes</translation>
     </message>
     <message>
-        <source>&amp;About PIVX Core</source>
-        <translation>&amp;關於 PIVX Core</translation>
+        <source>&amp;About STOMP Core</source>
+        <translation>&amp;關於 STOMP Core</translation>
     </message>
     <message>
-        <source>Show information about PIVX Core</source>
-        <translation>顯示 PIVX Core 相關資訊</translation>
+        <source>Show information about STOMP Core</source>
+        <translation>顯示 STOMP Core 相關資訊</translation>
     </message>
     <message>
         <source>Modify configuration options for STOMP</source>
@@ -637,12 +637,12 @@
         <translation>區塊鏈瀏覽視窗</translation>
     </message>
     <message>
-        <source>Show the PIVX Core help message to get a list with possible STOMP command-line options</source>
-        <translation>顯示 PIVX Core 幫助訊息以取得 STOMP 命令列表選項</translation>
+        <source>Show the STOMP Core help message to get a list with possible STOMP command-line options</source>
+        <translation>顯示 STOMP Core 幫助訊息以取得 STOMP 命令列表選項</translation>
     </message>
     <message>
-        <source>PIVX Core client</source>
-        <translation>PIVX Core 客戶端</translation>
+        <source>STOMP Core client</source>
+        <translation>STOMP Core 客戶端</translation>
     </message>
     </context>
 <context>
@@ -674,15 +674,15 @@
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>PIVX Core</source>
-        <translation>PIVX Core</translation>
+        <source>STOMP Core</source>
+        <translation>STOMP Core</translation>
     </message>
     </context>
 <context>
     <name>Intro</name>
     <message>
-        <source>PIVX Core</source>
-        <translation>PIVX Core</translation>
+        <source>STOMP Core</source>
+        <translation>STOMP Core</translation>
     </message>
     </context>
 <context>
@@ -757,8 +757,8 @@
 <context>
     <name>QObject</name>
     <message>
-        <source>PIVX Core</source>
-        <translation>PIVX Core</translation>
+        <source>STOMP Core</source>
+        <translation>STOMP Core</translation>
     </message>
     </context>
 <context>
@@ -907,8 +907,8 @@
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>PIVX Core</source>
-        <translation>PIVX Core</translation>
+        <source>STOMP Core</source>
+        <translation>STOMP Core</translation>
     </message>
     </context>
 <context>

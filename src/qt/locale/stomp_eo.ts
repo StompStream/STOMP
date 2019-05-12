@@ -641,7 +641,7 @@
         <translation>Iloj langeto</translation>
     </message>
     <message>
-        <source>PIVX Core</source>
+        <source>STOMP Core</source>
         <translation>STOMP kerno</translation>
     </message>
     <message>
@@ -665,11 +665,11 @@
         <translation>Foliumi mastro-nodo</translation>
     </message>
     <message>
-        <source>&amp;About PIVX Core</source>
+        <source>&amp;About STOMP Core</source>
         <translation>&amp;Pri STOMP Kerno</translation>
     </message>
     <message>
-        <source>Show information about PIVX Core</source>
+        <source>Show information about STOMP Core</source>
         <translation>Montri informon pri STOMP Kerno</translation>
     </message>
     <message>
@@ -725,11 +725,11 @@
         <translation>Bloko esplorilo fenestro</translation>
     </message>
     <message>
-        <source>Show the PIVX Core help message to get a list with possible STOMP command-line options</source>
+        <source>Show the STOMP Core help message to get a list with possible STOMP command-line options</source>
         <translation>Montri la STOMP Kore help-mesaĝo por havi liston de havebla STOMP komandlinion opciojn</translation>
     </message>
     <message>
-        <source>PIVX Core client</source>
+        <source>STOMP Core client</source>
         <translation>STOMP Kerno kliento</translation>
     </message>
     <message>
@@ -1210,7 +1210,7 @@ Muktisendi: %1</translation>
         <translation>versio</translation>
     </message>
     <message>
-        <source>PIVX Core</source>
+        <source>STOMP Core</source>
         <translation>STOMP kerno</translation>
     </message>
     <message>
@@ -1218,7 +1218,7 @@ Muktisendi: %1</translation>
         <translation>(%1-bajto)</translation>
     </message>
     <message>
-        <source>About PIVX Core</source>
+        <source>About STOMP Core</source>
         <translation>Pri STOMP Kerno</translation>
     </message>
     <message>
@@ -1261,15 +1261,15 @@ Muktisendi: %1</translation>
         <translation>Bonvenon</translation>
     </message>
     <message>
-        <source>Welcome to PIVX Core.</source>
+        <source>Welcome to STOMP Core.</source>
         <translation>Bonvenon al la STOMP Kerno.</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where PIVX Core will store its data.</source>
+        <source>As this is the first time the program is launched, you can choose where STOMP Core will store its data.</source>
         <translation>Ĉar estas la unuan fojon ke la programo estas lanĉita, vi povas elekti kie STOMP kernk storigis sian datumojn. </translation>
     </message>
     <message>
-        <source>PIVX Core will download and store a copy of the STOMP block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <source>STOMP Core will download and store a copy of the STOMP block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
         <translation>STOMP kerno elŝutos kaj konservi kopion de la STOMP blokĉeno. Almenaŭ %1GB datumoj stokitos en ĉi tiun dosierujo, kaj ĝi kresko kun la tempo. Monujo stokitos en ĉi tiun dosierujo.</translation>
     </message>
     <message>
@@ -1281,7 +1281,7 @@ Muktisendi: %1</translation>
         <translation>Uzi kutimon datumojn dosierujo:</translation>
     </message>
     <message>
-        <source>PIVX Core</source>
+        <source>STOMP Core</source>
         <translation>STOMP kerno</translation>
     </message>
     <message>
@@ -1995,7 +1995,7 @@ Nematura: konfirmita, sed malpli ol 1 minto el la samo nomado post ĝin estis mi
         <translation>NEKONATA</translation>
     </message>
     <message>
-        <source>PIVX Core</source>
+        <source>STOMP Core</source>
         <translation>STOMP kerno</translation>
     </message>
     </context>
@@ -2371,7 +2371,7 @@ Nematura: konfirmita, sed malpli ol 1 minto el la samo nomado post ĝin estis mi
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>PIVX Core is shutting down...</source>
+        <source>STOMP Core is shutting down...</source>
         <translation>STOMP kerno fermanta...</translation>
     </message>
     </context>
@@ -2425,7 +2425,7 @@ Nematura: konfirmita, sed malpli ol 1 minto el la samo nomado post ĝin estis mi
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>PIVX Core</source>
+        <source>STOMP Core</source>
         <translation>STOMP kerno</translation>
     </message>
     <message>
@@ -2437,7 +2437,7 @@ Nematura: konfirmita, sed malpli ol 1 minto el la samo nomado post ĝin estis mi
         <translation>La Dash kerno programistoj</translation>
     </message>
     <message>
-        <source>The PIVX Core developers</source>
+        <source>The STOMP Core developers</source>
         <translation>La STOMP kerno programistoj</translation>
     </message>
     </context>

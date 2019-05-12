@@ -6,6 +6,7 @@
 
 #include "masternode-payments.h"
 #include "addrman.h"
+#include "chainparams.h"
 #include "masternode-budget.h"
 #include "masternode-devbudget.h"
 #include "masternode-rewardbudget.h"
@@ -179,7 +180,7 @@ bool IsBlockValueValid(const CBlock& block, CAmount nExpectedValue, CAmount nMin
 {
     CBlockIndex* pindexPrev = chainActive.Tip();
     if (pindexPrev == NULL) return true;
-    
+
 
     int nHeight = 0;
     if (pindexPrev->GetBlockHash() == block.hashPrevBlock) {
@@ -198,7 +199,7 @@ bool IsBlockValueValid(const CBlock& block, CAmount nExpectedValue, CAmount nMin
 
     if (!masternodeSync.IsSynced()) { //there is no budget data to use to check anything
         //super blocks will always be on these blocks, max 100 per budgeting
-        if (nHeight % GetBudgetPaymentCycleBlocks() < 100) {
+        if (nHeight % Params().GetBudgetCycleBlocks() < 100) {
             return true;
         } else {
             if (nMinted > nExpectedValue) {
@@ -227,8 +228,6 @@ bool IsBlockValueValid(const CBlock& block, CAmount nExpectedValue, CAmount nMin
 
 bool IsBlockPayeeValid(const CBlock& block, int nBlockHeight)
 {
-    LogPrint("debug","%s nBlockHeight:%d\n", __func__, nBlockHeight);
-    
     TrxValidationStatus transactionStatus = TrxValidationStatus::InValid;
 
     if (!masternodeSync.IsSynced()) { //there is no budget data to use to check anything -- find the longest chain
@@ -256,7 +255,7 @@ bool IsBlockPayeeValid(const CBlock& block, int nBlockHeight)
         }
     }
 
-    // Check devfee payment
+    // If we end here the transaction was either TrxValidationStatus::InValid and Budget enforcement is disabled, or
     if (!devbudget.IsTransactionValid(txNew, nBlockHeight)) {
         LogPrint("masternode","Invalid dev budget payment detected %s\n", txNew.ToString().c_str());
         return false;
@@ -582,11 +581,8 @@ bool CMasternodeBlockPayees::IsTransactionValid(const CTransaction& txNew)
         bool found = false;
         BOOST_FOREACH (CTxOut out, txNew.vout) {
             if (payee.scriptPubKey == out.scriptPubKey) {
-                if(out.nValue >= requiredMasternodePayment) {
-                    LogPrint("masternode","Masternode payment paid=%s Min=%s\n", FormatMoney(out.nValue).c_str(), FormatMoney(requiredMasternodePayment).c_str());
-                    
+                if(out.nValue >= requiredMasternodePayment)
                     found = true;
-                }
                 else
                     LogPrint("masternode","Masternode payment is out of drift range. Paid=%s Min=%s\n", FormatMoney(out.nValue).c_str(), FormatMoney(requiredMasternodePayment).c_str());
             }
@@ -735,6 +731,7 @@ bool CMasternodePayments::ProcessBlock(int nBlockHeight)
     }
 
     if (nBlockHeight <= nLastBlockHeight) return false;
+
 
     CMasternodePaymentWinner newWinner(activeMasternode.vin);
 

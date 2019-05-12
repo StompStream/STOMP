@@ -1,4 +1,4 @@
-// Copyright (c) 2018 The STOMP developers
+// Copyright (c) 2018 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -8,7 +8,7 @@
 #include "sync.h"
 #include "main.h"
 #include "txdb.h"
-#include "walletdb.h"
+#include "wallet/walletdb.h"
 #include "zstmp/accumulators.h"
 #include "zstmp/zstmpwallet.h"
 #include "witness.h"

@@ -1,4 +1,5 @@
-// Copyright (c) 2017-2018 The STOMP developers
+// Copyright (c) 2017-2018 The PIVX developers
+// Copyright (c) 2018 The STOMP developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -642,7 +643,7 @@ bool calculateAccumulatedBlocksFor(
         throw NotEnoughMintsException(strError);
     }
 
-    LogPrint("zero", "%s: nMintsAdded %d",nMintsAdded);
+    LogPrintf("calculateAccumulatedBlocksFor() : nMintsAdded %d",nMintsAdded);
 
     return true;
 }
@@ -701,7 +702,7 @@ bool calculateAccumulatedBlocksFor(
         throw NotEnoughMintsException(strError);
     }
 
-    LogPrint("zero", "%s : nMintsAdded %d",nMintsAdded);
+    LogPrintf("calculateAccumulatedBlocksFor() : nMintsAdded %d",nMintsAdded);
 
     return true;
 }

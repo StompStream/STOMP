@@ -1,2 +1,2 @@
-debian/manpages/stompd.1
-debian/manpages/stomp.conf.5
+doc/man/stompd.1
+doc/man/stomp-cli.1

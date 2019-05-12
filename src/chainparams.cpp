@@ -119,24 +119,38 @@ public:
         vAlertPubKey = ParseHex("048b322f15140bb99df0de27653b3761190b7f162c875893c1da3138a5b0d5189bbf4f8ecfe7fe7c5374de522006f295da412059138d73e7ec2e526a51530e1292");
         nDefaultPort = 36321;
         bnProofOfWorkLimit = ~uint256(0) >> 20; // STOMP starting difficulty is 1 / 2^12
+        nSubsidyHalvingInterval = 210000;
         nMaxReorganizationDepth = 100;
+        nEnforceBlockUpgradeMajority = 8100; // 75%
+        nRejectBlockOutdatedMajority = 10260; // 95%
+        nToCheckBlockUpgradeMajority = 10800; // Approximate expected amount of blocks in 7 days (1440*7.5)
         nMinerThreads = 0;
-        nTargetSpacing = 2 * 60;  // STOMP: 2 minute
+        nTargetTimespan = 1 * 60; // PIVX: 1 day
+        nTargetSpacing = 2 * 60;  // PIVX: 2 minute
         nMaturity = 100;
+        nMasternodeCountDrift = 20;
         nMaxMoneyOut = 36000000 * COIN;
 
         nMasternodeCollateral = 15000;
         strDevFundAddress = "SSDx9L7MAmg8yUfqMPTiRPjKJVnMyYz6mG";
         strRewardFundAddress = "SagJitjZUH5ABahzyYAdEzoJBEJ4dc9dVa";
         nStakeInputMinimal = 200 * COIN;
-
         /** Height or Time Based Activations **/
         nLastPOWBlock = 300;
         nModifierUpdateBlock = 0;
-        nZerocoinStartHeight = 0;
-        nZerocoinStartTime = 1550792244; // Genesis time
-        nBlockZerocoinV2 = 20;
-
+        nZerocoinStartHeight = 999999999;
+        nZerocoinStartTime = 1873242920; // Genesis time
+        nBlockEnforceSerialRange = 1; //Enforce serial range starting this block
+        nBlockRecalculateAccumulators = 999999999; //Trigger a recalculation of accumulators
+        nBlockFirstFraudulent = 999999999; //First block that bad serials emerged
+        nBlockLastGoodCheckpoint = 999999999; //Last valid accumulator checkpoint
+        nBlockEnforceInvalidUTXO = 999999999; //Start enforcing the invalid UTXO's
+        nInvalidAmountFiltered = 0; //Amount of invalid coins filtered through exchanges, that should be considered valid
+        nBlockZerocoinV2 = 999999999; //!> The block that zerocoin v2 becomes active - roughly Tuesday, May 8, 2018 4:00:00 AM GMT
+        nBlockDoubleAccumulated = 999999999;
+        nEnforceNewSporkKey = 1525158000; //!> Sporks signed after (GMT): Tuesday, May 1, 2018 7:00:00 AM GMT must use the new spork key
+        nRejectOldSporkKey = 1527811200; //!> Fully reject old spork key after (GMT): Friday, June 1, 2018 12:00:00 AM
+        // Fake Serial Attack
         // Fake Serial Attack
         nFakeSerialBlockheightEnd = -1;
         nSupplyBeforeFakeSerial = 0;   // zerocoin supply at block nFakeSerialBlockheightEnd
@@ -171,7 +185,8 @@ public:
         assert(hashGenesisBlock == uint256("0x0000063f4d58618fb238c1d42063d92f0ae20df4e782258b05ccd316b2944724"));
         assert(genesis.hashMerkleRoot == uint256("0x5329769ac177aed03555da3d655cfd2d6b61ebe636e56bb827e979ef97974556"));
 
-        //vSeeds.push_back(CDNSSeedData("134.255.234.59", "134.255.234.59"));     // Primary DNS Seeder
+        //vSeeds.push_back(CDNSSeedData("fuzzbawls.pw", "stomp.seed.fuzzbawls.pw"));     // Primary DNS Seeder from Fuzzbawls
+
         //vSeeds.push_back(CDNSSeedData("134.255.216.244", "134.255.216.244"));     // Primary DNS Seeder
         //vSeeds.push_back(CDNSSeedData("92.42.46.121", "92.42.46.121"));     // Primary DNS Seeder
         
@@ -196,6 +211,7 @@ public:
         fHeadersFirstSyncingActive = false;
 
         nPoolMaxTransactions = 3;
+        nBudgetCycleBlocks = 43200; //!< Amount of blocks in a months period of time (using 1 minutes per) = (60*24*30)
         strSporkKey = "048e7c8a60807dfe6ea12b52abb7a77970921054849319a90da8a5a922e64400370850da3433a740b426f5a7f1ee678f334eebb30db44efbca1081411be22301bc";
         strObfuscationPoolDummyAddress = "SSDx9L7MAmg8yUfqMPTiRPjKJVnMyYz6mG";
         nStartMasternodePayments = 1554250594; //Wed, 25 Jun 2014 20:36:16 GMT
@@ -210,12 +226,13 @@ public:
         nMaxZerocoinSpendsPerTransaction = 7; // Assume about 20kb each
         nMinZerocoinMintFee = 1 * CENT; //high fee required for zerocoin mints
         nMintRequiredConfirmations = 20; //the maximum amount of confirmations until accumulated in 19
-        nRequiredAccumulation = 100;
+        nRequiredAccumulation = 1;
         nDefaultSecurityLevel = 100; //full security level for accumulators
         nZerocoinHeaderVersion = 5; //Block headers must be this version once zerocoin is active
         nZerocoinRequiredStakeDepth = 200; //The required confirmations for a zstmp to be stakable
 
         nBudget_Fee_Confirmations = 6; // Number of confirmations for the finalization fee
+        nProposalEstablishmentTime = 60 * 60 * 24; // Proposals must be at least a day old to make it into a budget
     }
 
     const Checkpoints::CCheckpointData& Checkpoints() const
@@ -241,19 +258,28 @@ public:
         pchMessageStart[3] = 0xbb;
         vAlertPubKey = ParseHex("04a2ccfd4ef7e1b4533a25456819eaf66023590e5c7032606e45bae29f86e3868a64a21b2c832790c21265e1297cfdbdb8692c9f8dc0ddab0f6e22a668eaede2ad");
         nDefaultPort = 51474;
+        nEnforceBlockUpgradeMajority = 4320; // 75%
+        nRejectBlockOutdatedMajority = 5472; // 95%
+        nToCheckBlockUpgradeMajority = 5760; // 4 days
         nMinerThreads = 0;
+        nTargetTimespan = 1 * 60; // STOMP: 1 day
         nTargetSpacing = 1 * 60;  // STOMP: 1 minute
         nLastPOWBlock = 200;
-        nMaturity = 100;
-        nModifierUpdateBlock = 0;
-        nMaxMoneyOut = 120000000 * COIN;
-        nZerocoinStartHeight = 15;
-        nZerocoinStartTime = 1550792244;
-        nBlockZerocoinV2 = 15;
-
-        nSubsidyHalvingBlock = 1600;
-        nMasternodeCollateral = 25000;
-        nStakeInputMinimal = 50 * COIN;
+        nMaturity = 15;
+        nMasternodeCountDrift = 4;
+        nModifierUpdateBlock = 0; //approx Mon, 17 Apr 2017 04:00:00 GMT
+        nMaxMoneyOut = 43199500 * COIN;
+        nZerocoinStartHeight = 300;
+        nZerocoinStartTime = 1501776000;
+        nBlockEnforceSerialRange = 1; //Enforce serial range starting this block
+        nBlockRecalculateAccumulators = 999999999; //Trigger a recalculation of accumulators
+        nBlockFirstFraudulent = 999999999; //First block that bad serials emerged
+        nBlockLastGoodCheckpoint = 999999999; //Last valid accumulator checkpoint
+        nBlockEnforceInvalidUTXO = 999999999; //Start enforcing the invalid UTXO's
+        nInvalidAmountFiltered = 0; //Amount of invalid coins filtered through exchanges, that should be considered valid
+        nBlockZerocoinV2 = 300; //!> The block that zerocoin v2 becomes active
+        nEnforceNewSporkKey = 1521604800; //!> Sporks signed after Wednesday, March 21, 2018 4:00:00 AM GMT must use the new spork key
+        nRejectOldSporkKey = 1522454400; //!> Reject old spork key after Saturday, March 31, 2018 12:00:00 AM GMT
 
         // Fake Serial Attack
         nFakeSerialBlockheightEnd = -1;
@@ -294,6 +320,8 @@ public:
         nStartMasternodePayments = 1554250594 + 500 * 120; 
         nBudget_Fee_Confirmations = 3; // Number of confirmations for the finalization fee. We have to make this very short
                                        // here because we only have a 8 block finalization window on testnet
+
+        nProposalEstablishmentTime = 60 * 5; // Proposals must be at least 5 mns old to make it into a test budget
     }
     const Checkpoints::CCheckpointData& Checkpoints() const
     {
@@ -316,17 +344,28 @@ public:
         pchMessageStart[1] = 0xca;
         pchMessageStart[2] = 0x7e;
         pchMessageStart[3] = 0xac;
+        nDefaultPort = 51476;
+        nSubsidyHalvingInterval = 150;
+        nEnforceBlockUpgradeMajority = 750;
+        nRejectBlockOutdatedMajority = 950;
+        nToCheckBlockUpgradeMajority = 1000;
         nMinerThreads = 1;
+        nTargetTimespan = 24 * 60 * 60; // STOMP: 1 day
         nTargetSpacing = 1 * 60;        // STOMP: 1 minutes
-        nDefaultPort = 43001;
         bnProofOfWorkLimit = ~uint256(0) >> 1;
         nLastPOWBlock = 250;
         nMaturity = 100;
+        nMasternodeCountDrift = 4;
         nModifierUpdateBlock = 0; //approx Mon, 17 Apr 2017 04:00:00 GMT
         nMaxMoneyOut = 43199500 * COIN;
         nZerocoinStartHeight = 300;
         nBlockZerocoinV2 = 300;
         nZerocoinStartTime = 1501776000;
+        nBlockEnforceSerialRange = 1; //Enforce serial range starting this block
+        nBlockRecalculateAccumulators = 999999999; //Trigger a recalculation of accumulators
+        nBlockFirstFraudulent = 999999999; //First block that bad serials emerged
+        nBlockLastGoodCheckpoint = 999999999; //Last valid accumulator checkpoint
+
         // Fake Serial Attack
         nFakeSerialBlockheightEnd = -1;
 
@@ -383,7 +422,10 @@ public:
     }
 
     //! Published setters to allow changing values in unit test cases
-    virtual void setSubsidyHalvingBlock(int anSubsidyHalvingBlock) { nSubsidyHalvingBlock = anSubsidyHalvingBlock; }
+    virtual void setSubsidyHalvingInterval(int anSubsidyHalvingInterval) { nSubsidyHalvingInterval = anSubsidyHalvingInterval; }
+    virtual void setEnforceBlockUpgradeMajority(int anEnforceBlockUpgradeMajority) { nEnforceBlockUpgradeMajority = anEnforceBlockUpgradeMajority; }
+    virtual void setRejectBlockOutdatedMajority(int anRejectBlockOutdatedMajority) { nRejectBlockOutdatedMajority = anRejectBlockOutdatedMajority; }
+    virtual void setToCheckBlockUpgradeMajority(int anToCheckBlockUpgradeMajority) { nToCheckBlockUpgradeMajority = anToCheckBlockUpgradeMajority; }
     virtual void setDefaultConsistencyChecks(bool afDefaultConsistencyChecks) { fDefaultConsistencyChecks = afDefaultConsistencyChecks; }
     virtual void setAllowMinDifficultyBlocks(bool afAllowMinDifficultyBlocks) { fAllowMinDifficultyBlocks = afAllowMinDifficultyBlocks; }
     virtual void setSkipProofOfWorkCheck(bool afSkipProofOfWorkCheck) { fSkipProofOfWorkCheck = afSkipProofOfWorkCheck; }

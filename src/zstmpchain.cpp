@@ -1,4 +1,4 @@
-// Copyright (c) 2018 The STOMP developers
+// Copyright (c) 2018 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -6,7 +6,7 @@
 #include "invalid.h"
 #include "main.h"
 #include "txdb.h"
-#include "ui_interface.h"
+#include "guiinterface.h"
 
 // 6 comes from OPCODE (1) + vch.size() (1) + BIGNUM size (4)
 #define SCRIPT_OFFSET 6

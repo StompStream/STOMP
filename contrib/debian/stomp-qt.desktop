@@ -1,6 +1,6 @@
 [Desktop Entry]
-Encoding=UTF-8
-Name=STOMP
+Version=1.0
+Name=STOMP Core
 Comment=STOMP P2P Cryptocurrency
 Comment[fr]=STOMP, monnaie virtuelle cryptographique pair à pair
 Comment[tr]=STOMP, eşten eşe kriptografik sanal para birimi
@@ -10,3 +10,4 @@ Type=Application
 Icon=stomp128
 MimeType=x-scheme-handler/stomp;
 Categories=Office;Finance;
+StartupWMClass=Stomp-qt

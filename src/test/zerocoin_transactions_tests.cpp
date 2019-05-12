@@ -1,4 +1,4 @@
-// Copyright (c) 2017-2018 The STOMP developers
+// Copyright (c) 2017-2018 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -7,8 +7,8 @@
 #include "chainparams.h"
 #include "coincontrol.h"
 #include "main.h"
-#include "wallet.h"
-#include "walletdb.h"
+#include "wallet/wallet.h"
+#include "wallet/walletdb.h"
 #include "txdb.h"
 #include <boost/test/unit_test.hpp>
 #include <iostream>

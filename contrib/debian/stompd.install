@@ -1,2 +1,3 @@
 usr/local/bin/stompd usr/bin
 usr/local/bin/stomp-cli usr/bin
+debian/examples/stomp.conf etc/stomp
