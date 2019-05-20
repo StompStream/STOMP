@@ -1884,7 +1884,33 @@ double ConvertBitsToDouble(unsigned int nBits)
 int64_t GetBlockValue(int nHeight)
 {
     int64_t ret = 0;
-    
+    if (nHeight < 20) {
+        ret = COIN * 150000;
+    } else if (nHeight < Params().LAST_POW_BLOCK()) {
+        ret = COIN * 1;
+    }
+    else if (nHeight <= 350) {
+        ret = COIN * 4;
+    }
+    else if (nHeight <= 370) {
+        ret = COIN * 6;
+    }
+    else if (nHeight <= 380) {
+        ret = COIN * 10;
+    }
+    else if (nHeight <= 390) {
+        ret = COIN * 14;
+    }
+    else if (nHeight <= 400) {
+        ret = COIN * 10;
+    }
+    else if (nHeight <= 410) {
+        ret = COIN * 8;
+    }
+    else {
+        ret = COIN * 5;
+    }
+/*    
     if (nHeight < 20) {
         ret = COIN * 150000;
     } else if (nHeight < Params().LAST_POW_BLOCK()) {
@@ -1911,7 +1937,7 @@ int64_t GetBlockValue(int nHeight)
     else {
         ret = COIN * 5;
     }
-
+*/
     LogPrint("debug","%s: Reward:%s nHeight:%s\n", __func__, FormatMoney(ret), nHeight);
     
     return ret;

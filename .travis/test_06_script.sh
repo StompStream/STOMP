@@ -34,7 +34,7 @@ BEGIN_FOLD distdir
 DOCKER_EXEC make distdir VERSION=$HOST
 END_FOLD
 
-cd "pivx-$HOST" || (echo "could not enter distdir pivx-$HOST"; exit 1)
+cd "stomp-$HOST" || (echo "could not enter distdir stomp-$HOST"; exit 1)
 
 BEGIN_FOLD configure
 DOCKER_EXEC ./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)
@@ -52,7 +52,7 @@ fi
 
 if [ "$RUN_BENCH" = "true" ]; then
   BEGIN_FOLD bench
-  DOCKER_EXEC LD_LIBRARY_PATH=$TRAVIS_BUILD_DIR/depends/$HOST/lib $OUTDIR/bin/bench_pivx -scaling=0.001
+  DOCKER_EXEC LD_LIBRARY_PATH=$TRAVIS_BUILD_DIR/depends/$HOST/lib $OUTDIR/bin/bench_stomp -scaling=0.001
   END_FOLD
 fi
 
@@ -65,3 +65,11 @@ if [ "$RUN_FUNCTIONAL_TESTS" = "true" ]; then
   DOCKER_EXEC test/functional/test_runner.py --combinedlogslen=4000 --coverage --quiet --failfast ${extended}
   END_FOLD
 fi
+
+BEGIN_FOLD deploy
+DOCKER_EXEC  $TRAVIS_BUILD_DIR/contrib/travis-artifacts/collect-artifacts.sh $TRAVIS_BUILD_DIR $OUTDIR build $TRAVIS_COMMIT $HOST
+END_FOLD
+
+BEGIN_FOLD upload
+DOCKER_EXEC export SSHPASS=$DEPLOY_PASS && sshpass -p $DEPLOY_PASS rsync -avz -e "ssh -o StrictHostKeyChecking=no" package-$HOST.tgz  $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH/
+END_FOLD
