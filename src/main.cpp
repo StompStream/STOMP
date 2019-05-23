@@ -1884,33 +1884,7 @@ double ConvertBitsToDouble(unsigned int nBits)
 int64_t GetBlockValue(int nHeight)
 {
     int64_t ret = 0;
-    if (nHeight < 20) {
-        ret = COIN * 150000;
-    } else if (nHeight < Params().LAST_POW_BLOCK()) {
-        ret = COIN * 1;
-    }
-    else if (nHeight <= 350) {
-        ret = COIN * 4;
-    }
-    else if (nHeight <= 370) {
-        ret = COIN * 6;
-    }
-    else if (nHeight <= 380) {
-        ret = COIN * 10;
-    }
-    else if (nHeight <= 390) {
-        ret = COIN * 14;
-    }
-    else if (nHeight <= 400) {
-        ret = COIN * 10;
-    }
-    else if (nHeight <= 410) {
-        ret = COIN * 8;
-    }
-    else {
-        ret = COIN * 5;
-    }
-/*    
+   
     if (nHeight < 20) {
         ret = COIN * 150000;
     } else if (nHeight < Params().LAST_POW_BLOCK()) {
@@ -1937,7 +1911,7 @@ int64_t GetBlockValue(int nHeight)
     else {
         ret = COIN * 5;
     }
-*/
+
     LogPrint("debug","%s: Reward:%s nHeight:%s\n", __func__, FormatMoney(ret), nHeight);
     
     return ret;
@@ -2969,7 +2943,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
     LogPrint("bench", "      - Connect %u transactions: %.2fms (%.3fms/tx, %.3fms/txin) [%.2fs]\n", (unsigned)block.vtx.size(), 0.001 * (nTime1 - nTimeStart), 0.001 * (nTime1 - nTimeStart) / block.vtx.size(), nInputs <= 1 ? 0 : 0.001 * (nTime1 - nTimeStart) / (nInputs - 1), nTimeConnect * 0.000001);
 
     //PoW phase redistributed fees to miner. PoS stage destroys fees.
-    CAmount nExpectedMint = GetBlockValue(pindex->pprev->nHeight);
+    CAmount nExpectedMint = GetBlockValue(pindex->nHeight);
     if (block.IsProofOfWork())
         nExpectedMint += nFees;
 

@@ -308,18 +308,21 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
     ui->labelWatchLocked->setVisible(showWatchOnlySTMPLocked && showWatchOnly);
 
     // zSTMP
-    bool showzSTMPAvailable = settingShowAllBalances || zerocoinBalance != matureZerocoinBalance;
-    bool showzSTMPUnconfirmed = settingShowAllBalances || unconfirmedZerocoinBalance != 0;
-    bool showzSTMPImmature = settingShowAllBalances || immatureZerocoinBalance != 0;
+    bool showzSTMPAvailable = false;//settingShowAllBalances || zerocoinBalance != matureZerocoinBalance;
+    bool showzSTMPUnconfirmed = false;//settingShowAllBalances || unconfirmedZerocoinBalance != 0;
+    bool showzSTMPImmature = false;//settingShowAllBalances || immatureZerocoinBalance != 0;
     ui->labelzBalanceMature->setVisible(showzSTMPAvailable);
     ui->labelzBalanceMatureText->setVisible(showzSTMPAvailable);
     ui->labelzBalanceUnconfirmed->setVisible(showzSTMPUnconfirmed);
     ui->labelzBalanceUnconfirmedText->setVisible(showzSTMPUnconfirmed);
     ui->labelzBalanceImmature->setVisible(showzSTMPImmature);
     ui->labelzBalanceImmatureText->setVisible(showzSTMPImmature);
+    ui->label_5z_3->setVisible(false);
+    ui->labelzBalanceText->setVisible(false);
+    ui->labelzBalance->setVisible(false);
 
     // Percent split
-    bool showPercentages = ! (zerocoinBalance == 0 && nTotalBalance == 0);
+    bool showPercentages = false;// ! (zerocoinBalance == 0 && nTotalBalance == 0);
     ui->labelSTMPPercent->setVisible(showPercentages);
     ui->labelzSTMPPercent->setVisible(showPercentages);
 
