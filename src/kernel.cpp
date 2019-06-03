@@ -260,12 +260,13 @@ bool GetKernelStakeModifier(uint256 hashBlockFrom, uint64_t& nStakeModifier, int
     int64_t nStakeModifierSelectionInterval = GetStakeModifierSelectionInterval();
     const CBlockIndex* pindex = pindexFrom;
     CBlockIndex* pindexNext = chainActive[pindexFrom->nHeight + 1];
-
+    
     // loop to find the stake modifier later by a selection interval
     while (nStakeModifierTime < pindexFrom->GetBlockTime() + nStakeModifierSelectionInterval) {
         if (!pindexNext) {
             // Should never happen
-            return error("Null pindexNext\n");
+            LogPrint("staking", " %s :Null pindexNext\n",  __func__);
+            return false;
         }
 
         pindex = pindexNext;
@@ -318,8 +319,10 @@ bool Stake(CStakeInput* stakeInput, unsigned int nBits, unsigned int nTimeBlockF
 
     //grab stake modifier
     uint64_t nStakeModifier = 0;
-    if (!stakeInput->GetModifier(nStakeModifier))
-        return error("failed to get kernel stake modifier");
+    if (!stakeInput->GetModifier(nStakeModifier)) {
+         LogPrint("staking", " %s :failed to get kernel stake modifier\n",  __func__);
+         return false;
+    }
 
     bool fSuccess = false;
     unsigned int nTryTime = 0;

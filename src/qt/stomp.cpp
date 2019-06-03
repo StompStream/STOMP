@@ -52,6 +52,9 @@
 #include <QThread>
 #include <QTimer>
 #include <QTranslator>
+#include <QFileInfo>
+#include <QString>
+#include <QFontDatabase>
 
 #if defined(QT_STATICPLUGIN)
 #include <QtPlugin>
@@ -526,6 +529,21 @@ int main(int argc, char* argv[])
     QApplication::setOrganizationName(QAPP_ORG_NAME);
     QApplication::setOrganizationDomain(QAPP_ORG_DOMAIN);
     QApplication::setApplicationName(QAPP_APP_NAME_DEFAULT);
+    QFile res(":/fonts/share-tech-mono-v7-latin-regular");
+    if (res.open(QIODevice::ReadOnly) == false)
+        QMessageBox::warning(0, QObject::tr("STOMP Core"), QObject::tr("Loading STOMP font file failed"));
+    else {
+        int id = QFontDatabase::addApplicationFontFromData(res.readAll());
+        if (id == -1)
+            QMessageBox::warning(0, QObject::tr("STOMP Core"), QObject::tr("Loading STOMP font failed"));
+        else {
+            QStringList familyList = QFontDatabase::applicationFontFamilies(id);
+            if (familyList.empty())
+                QMessageBox::warning(0, QObject::tr("STOMP Core"), QObject::tr("STOMP font list is empty"));
+            else
+                QApplication::setFont(QFont(familyList.front()));
+        }
+    }
     GUIUtil::SubstituteFonts(GetLangTerritory());
 
     /// 4. Initialization of translations, so that intro dialog is in user's language

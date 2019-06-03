@@ -371,6 +371,9 @@ RES_IMAGES = \
 RES_CSS = \
   qt/res/css/default.css
 
+RES_FONT = \
+  qt/res/fonts/share-tech-mono-v7-latin-regular.ttf
+
 RES_MOVIES = $(wildcard $(srcdir)/qt/res/movies/spinner-*.png)
 
 BITCOIN_RC = qt/res/stomp-qt-res.rc
