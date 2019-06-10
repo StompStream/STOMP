@@ -141,8 +141,8 @@ UniValue blockToJSON(const CBlock& block, const CBlockIndex* blockindex, bool tx
     for (auto denom : libzerocoin::zerocoinDenomList) {
         zstmpObj.push_back(Pair(to_string(denom), ValueFromAmount(blockindex->mapZerocoinSupply.at(denom) * (denom*COIN))));
     }
-    zstmpObj.push_back(Pair("total", ValueFromAmount(blockindex->GetZerocoinSupply())));
-    result.push_back(Pair("zSTMPsupply", zstmpObj));
+    //zstmpObj.push_back(Pair("total", ValueFromAmount(blockindex->GetZerocoinSupply())));
+    //result.push_back(Pair("zSTMPsupply", zstmpObj));
 
     return result;
 }
@@ -180,7 +180,7 @@ UniValue getchecksumblock(const UniValue& params, bool fHelp)
             "  \"previousblockhash\" : \"hash\",  (string) The hash of the previous block\n"
             "  \"nextblockhash\" : \"hash\"       (string) The hash of the next block\n"
             "  \"moneysupply\" : \"supply\"       (numeric) The money supply when this block was added to the blockchain\n"
-            "  \"zSTMPsupply\" :\n"
+           /* "  \"zSTMPsupply\" :\n"
             "  {\n"
             "     \"1\" : n,            (numeric) supply of 1 zSTMP denomination\n"
             "     \"5\" : n,            (numeric) supply of 5 zSTMP denomination\n"
@@ -191,7 +191,7 @@ UniValue getchecksumblock(const UniValue& params, bool fHelp)
             "     \"1000\" : n,         (numeric) supply of 1000 zSTMP denomination\n"
             "     \"5000\" : n,         (numeric) supply of 5000 zSTMP denomination\n"
             "     \"total\" : n,        (numeric) The total supply of all zSTMP denominations\n"
-            "  }\n"
+            "  }\n"*/
             "}\n"
 
             "\nResult (for verbose=false):\n"
@@ -571,7 +571,7 @@ UniValue getblock(const UniValue& params, bool fHelp)
             "  \"previousblockhash\" : \"hash\",  (string) The hash of the previous block\n"
             "  \"nextblockhash\" : \"hash\"       (string) The hash of the next block\n"
             "  \"moneysupply\" : \"supply\"       (numeric) The money supply when this block was added to the blockchain\n"
-            "  \"zSTMPsupply\" :\n"
+           /* "  \"zSTMPsupply\" :\n"
             "  {\n"
             "     \"1\" : n,            (numeric) supply of 1 zSTMP denomination\n"
             "     \"5\" : n,            (numeric) supply of 5 zSTMP denomination\n"
@@ -582,7 +582,7 @@ UniValue getblock(const UniValue& params, bool fHelp)
             "     \"1000\" : n,         (numeric) supply of 1000 zSTMP denomination\n"
             "     \"5000\" : n,         (numeric) supply of 5000 zSTMP denomination\n"
             "     \"total\" : n,        (numeric) The total supply of all zSTMP denominations\n"
-            "  }\n"
+            "  }\n"*/
             "}\n"
 
             "\nResult (for verbose=false):\n"

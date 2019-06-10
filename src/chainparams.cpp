@@ -55,13 +55,13 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
     (0, uint256("0000063f4d58618fb238c1d42063d92f0ae20df4e782258b05ccd316b2944724"))
-    //(250, uint256("0000063f4d58618fb238c1d42063d92f0ae20df4e782258b05ccd316b2944724"))
-    //(630, uint256("9cf5b61600a1d8489b7295be8a12984104f533d2e0856ef00745168456eff215"))
+    (300, uint256("0000003d2c88ac09e0092f359f507b36ad0735f8d5de05b4f1e1847f58dae8c5"))
+    (530, uint256("055a918ed69638872c2f3c0fd610effdfdd21c005ae53f1eb36fb3a127d62ca6"))
     ;
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1554250594, // * UNIX timestamp of last checkpoint block
-    0,    // * total number of transactions between genesis and last checkpoint
+    1560193541, // * UNIX timestamp of last checkpoint block
+    767,    // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
     100        // * estimated number of transactions per day after checkpoint
 };
@@ -185,10 +185,11 @@ public:
         assert(hashGenesisBlock == uint256("0x0000063f4d58618fb238c1d42063d92f0ae20df4e782258b05ccd316b2944724"));
         assert(genesis.hashMerkleRoot == uint256("0x5329769ac177aed03555da3d655cfd2d6b61ebe636e56bb827e979ef97974556"));
 
-        //vSeeds.push_back(CDNSSeedData("fuzzbawls.pw", "stomp.seed.fuzzbawls.pw"));     // Primary DNS Seeder from Fuzzbawls
-
-        //vSeeds.push_back(CDNSSeedData("134.255.216.244", "134.255.216.244"));     // Primary DNS Seeder
-        //vSeeds.push_back(CDNSSeedData("92.42.46.121", "92.42.46.121"));     // Primary DNS Seeder
+        vSeeds.push_back(CDNSSeedData("66.42.76.32", "66.42.76.32"));     // Primary DNS Seeder
+        vSeeds.push_back(CDNSSeedData("66.55.159.232", "66.55.159.232"));     // Primary DNS Seeder
+        vSeeds.push_back(CDNSSeedData("45.76.56.187", "45.76.56.187"));
+        vSeeds.push_back(CDNSSeedData("45.76.143.181", "45.76.143.181"));
+        vSeeds.push_back(CDNSSeedData("139.180.206.131", "139.180.206.131"));
         
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,63);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,33);
