@@ -2152,7 +2152,7 @@ bool CWallet::SelectStakeCoins(std::list<std::unique_ptr<CStakeInput> >& listInp
             listInputs.emplace_back(std::move(input));
         }
     }
-
+/* 
     //zSTMP
     if ((GetBoolArg("-zstmpstake", true) || fPrecompute) && chainActive.Height() > Params().Zerocoin_Block_V2_Start() && !IsSporkActive(SPORK_16_ZEROCOIN_MAINTENANCE_MODE)) {
         //Only update zSTMP set once per update interval
@@ -2182,7 +2182,7 @@ bool CWallet::SelectStakeCoins(std::list<std::unique_ptr<CStakeInput> >& listInp
             }
         }
     }
-
+*/
     return true;
 }
 
