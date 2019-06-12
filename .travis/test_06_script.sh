@@ -71,5 +71,5 @@ BEGIN_FOLD deploy
 END_FOLD
 
 BEGIN_FOLD upload
-DOCKER_EXEC export SSHPASS=$DEPLOY_PASS && sshpass -p $DEPLOY_PASS rsync -avz -e "ssh -o StrictHostKeyChecking=no" package-$HOST.tgz  $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH/
+#DOCKER_EXEC export SSHPASS=$DEPLOY_PASS && sshpass -p $DEPLOY_PASS rsync -avz -e "ssh -o StrictHostKeyChecking=no" package-$HOST.tgz  $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH/
 END_FOLD
