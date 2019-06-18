@@ -60,6 +60,11 @@ CTxIn::CTxIn(const libzerocoin::CoinSpend& spend, libzerocoin::CoinDenomination 
     nSequence = denom;
 }
 
+bool CTxIn::IsZerocoinSpend() const
+{
+    return prevout.hash == 0 && scriptSig.IsZerocoinSpend();
+}
+
 std::string CTxIn::ToString() const
 {
     std::string str;
