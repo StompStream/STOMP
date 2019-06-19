@@ -1030,7 +1030,12 @@ UniValue getfeeinfo(const UniValue& params, bool fHelp)
     LOCK(cs_main);
 
     int nBlocks = params[0].get_int();
-    int nBestHeight = chainActive.Height();
+    int nBestHeight;
+    {
+        LOCK(cs_main);
+        nBestHeight = chainActive.Height();
+    }
+    
     int nStartHeight = nBestHeight - nBlocks;
     if (nBlocks < 0 || nStartHeight <= 0)
         throw JSONRPCError(RPC_INVALID_PARAMETER, "invalid start height");
