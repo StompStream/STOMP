@@ -8,10 +8,16 @@ More information at [stomp.stream](http://www.stomp.stream) Visit our ANN thread
 ### Coin Specs
 <table>
 <tr><td>Algo</td><td>Quark</td></tr>
-<tr><td>Block Time</td><td>60 Seconds</td></tr>
 <tr><td>Difficulty Retargeting</td><td>Every Block</td></tr>
 <tr><td>Max Coin Supply</td><td>15,000,000 STMP</td></tr>
 <tr><td>Premine</td><td>3,000,000 STMP</td></tr>
+<tr><td>Block Time</td><td>60 Seconds</td></tr>
+<tr><td>Block Minting</td><td>150</td></tr>
+<tr><td>Block Transactions</td><td>5</td></tr>
+<tr><td>Block Maturity</td><td>5 hours</td></tr>
+<tr><td>Minimum Stake Age</td><td>16 hours</td></tr>
+<tr><td>Minimum Input Stake Amnt</td><td>200</td></tr>
+<tr><td>Masternode Collateral</td><td>15,000</td></tr>
 </table>
 
 
