@@ -9,7 +9,7 @@ More information at [stomp.stream](http://www.stomp.stream) Visit our ANN thread
 <table>
 <tr><td>Algo</td><td>Quark</td></tr>
 <tr><td>Difficulty Retargeting</td><td>Every Block</td></tr>
-<tr><td>Max Coin Supply</td><td>15,000,000 STMP</td></tr>
+<tr><td>Max Coin Supply</td><td>72,000,000 STMP</td></tr>
 <tr><td>Premine</td><td>3,000,000 STMP</td></tr>
 <tr><td>Block Time</td><td>60 Seconds</td></tr>
 <tr><td>Block Minting</td><td>150</td></tr>
