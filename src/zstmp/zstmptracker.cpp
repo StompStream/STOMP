@@ -1,4 +1,4 @@
-// Copyright (c) 2018 The PIVX developers
+// Copyright (c) 2018-2019 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -13,7 +13,6 @@
 #include "zstmp/zstmpwallet.h"
 #include "witness.h"
 
-using namespace std;
 
 CzSTMPTracker::CzSTMPTracker(std::string strWalletFile)
 {
@@ -136,7 +135,7 @@ bool CzSTMPTracker::ClearSpendCache()
 
 std::vector<uint256> CzSTMPTracker::GetSerialHashes()
 {
-    vector<uint256> vHashes;
+    std::vector<uint256> vHashes;
     for (auto it : mapSerialHashes) {
         if (it.second.isArchived)
             continue;
@@ -154,7 +153,7 @@ CAmount CzSTMPTracker::GetBalance(bool fConfirmedOnly, bool fUnconfirmedOnly) co
     //! zerocoin specific fields
     std::map<libzerocoin::CoinDenomination, unsigned int> myZerocoinSupply;
     for (auto& denom : libzerocoin::zerocoinDenomList) {
-        myZerocoinSupply.insert(make_pair(denom, 0));
+        myZerocoinSupply.insert(std::make_pair(denom, 0));
     }
 
     {
@@ -187,7 +186,7 @@ CAmount CzSTMPTracker::GetUnconfirmedBalance() const
 
 std::vector<CMintMeta> CzSTMPTracker::GetMints(bool fConfirmedOnly) const
 {
-    vector<CMintMeta> vMints;
+    std::vector<CMintMeta> vMints;
     for (auto& it : mapSerialHashes) {
         CMintMeta mint = it.second;
         if (mint.isArchived || mint.isUsed)
@@ -353,7 +352,7 @@ void CzSTMPTracker::SetPubcoinUsed(const uint256& hashPubcoin, const uint256& tx
         return;
     CMintMeta meta = GetMetaFromPubcoin(hashPubcoin);
     meta.isUsed = true;
-    mapPendingSpends.insert(make_pair(meta.hashSerial, txid));
+    mapPendingSpends.insert(std::make_pair(meta.hashSerial, txid));
     UpdateState(meta);
 }
 
@@ -460,7 +459,7 @@ bool CzSTMPTracker::UpdateStatusInternal(const std::set<uint256>& setMempool, CM
     return false;
 }
 
-std::set<CMintMeta> CzSTMPTracker::ListMints(bool fUnusedOnly, bool fMatureOnly, bool fUpdateStatus, bool fWrongSeed)
+std::set<CMintMeta> CzSTMPTracker::ListMints(bool fUnusedOnly, bool fMatureOnly, bool fUpdateStatus, bool fWrongSeed, bool fExcludeV1)
 {
     CWalletDB walletdb(strWalletFile);
     if (fUpdateStatus) {
@@ -473,6 +472,8 @@ std::set<CMintMeta> CzSTMPTracker::ListMints(bool fUnusedOnly, bool fMatureOnly,
 
         CzSTMPWallet* zSTMPWallet = new CzSTMPWallet(strWalletFile);
         for (auto& dMint : listDeterministicDB) {
+            if (fExcludeV1 && dMint.GetVersion() < 2)
+                continue;
             Add(dMint, false, false, zSTMPWallet);
         }
         delete zSTMPWallet;

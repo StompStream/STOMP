@@ -1,6 +1,5 @@
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The PIVX developers
-// Copyright (c) 2019-2019 The STOMP developers
+// Copyright (c) 2015-2019 The PIVX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -84,7 +83,7 @@ CMasternodePaymentDB::ReadResult CMasternodePaymentDB::Read(CMasternodePayments&
     // Don't try to resize to a negative number if file is small
     if (dataSize < 0)
         dataSize = 0;
-    vector<unsigned char> vchData;
+    std::vector<unsigned char> vchData;
     vchData.resize(dataSize);
     uint256 hashIn;
 
@@ -181,7 +180,6 @@ bool IsBlockValueValid(const CBlock& block, CAmount nExpectedValue, CAmount nMin
     CBlockIndex* pindexPrev = chainActive.Tip();
     if (pindexPrev == NULL) return true;
 
-
     int nHeight = 0;
     if (pindexPrev->GetBlockHash() == block.hashPrevBlock) {
         nHeight = pindexPrev->nHeight + 1;
@@ -256,15 +254,16 @@ bool IsBlockPayeeValid(const CBlock& block, int nBlockHeight)
     }
 
     // If we end here the transaction was either TrxValidationStatus::InValid and Budget enforcement is disabled, or
-    if (!devbudget.IsTransactionValid(txNew, nBlockHeight)) {
+    
+    bool devbudgetValid = devbudget.IsTransactionValid(txNew, nBlockHeight);
+    if (!devbudgetValid) {
         LogPrint("masternode","Invalid dev budget payment detected %s\n", txNew.ToString().c_str());
-        return false;
     }
     
         // Check reward budget payment
-    if (!rewardbudget.IsTransactionValid(txNew, nBlockHeight)) {
+    bool rewardbudgetValid = rewardbudget.IsTransactionValid(txNew, nBlockHeight);
+    if (!rewardbudgetValid) {
         LogPrint("masternode","Invalid reward budget payment detected %s\n", txNew.ToString().c_str());
-        return false;
     }
 
     // If we end here the transaction was either TrxValidationStatus::InValid and Budget enforcement is disabled, or
@@ -273,11 +272,12 @@ bool IsBlockPayeeValid(const CBlock& block, int nBlockHeight)
     // In all cases a masternode will get the payment for this block
 
     //check for masternode payee
-    if (masternodePayments.IsTransactionValid(txNew, nBlockHeight))
-        return true;
-    LogPrint("masternode","Invalid mn payment detected %s\n", txNew.ToString().c_str());
+    bool masternodePaymentsValid = masternodePayments.IsTransactionValid(txNew, nBlockHeight);
+    if (!masternodePaymentsValid){
+        LogPrint("masternode","Invalid mn payment detected %s\n", txNew.ToString().c_str());
+    }
 
-    if (IsSporkActive(SPORK_8_MASTERNODE_PAYMENT_ENFORCEMENT))
+    if ((!devbudgetValid || !rewardbudgetValid || !masternodePaymentsValid) && IsSporkActive(SPORK_8_MASTERNODE_PAYMENT_ENFORCEMENT))
         return false;
     LogPrint("masternode","Masternode payment enforcement is disabled, accepting block\n");
 
@@ -293,7 +293,6 @@ void FillBlockPayee(CMutableTransaction& txNew, CAmount nFees, bool fProofOfStak
     if (IsSporkActive(SPORK_13_ENABLE_SUPERBLOCKS) && budget.IsBudgetPaymentBlock(pindexPrev->nHeight + 1)) {
         budget.FillBlockPayee(txNew, nFees, fProofOfStake);
     } else {
-        // masternode payment
         masternodePayments.FillBlockPayee(txNew, nFees, fProofOfStake, fZSTMPStake);
     }
 }
@@ -346,18 +345,29 @@ void CMasternodePayments::FillBlockPayee(CMutableTransaction& txNew, int64_t nFe
             txNew.vout[i].nValue = masternodePayment;
 
             //subtract mn payment from the stake reward
-            if (!txNew.vout[1].IsZerocoinMint())
-                txNew.vout[i - 1].nValue -= (masternodePayment + rewardPayment + devPayment);
+            if (!txNew.vout[1].IsZerocoinMint()) {
+                if (i == 2) {
+                    // Majority of cases; do it quick and move on
+                    txNew.vout[i - 1].nValue -= (masternodePayment + rewardPayment + devPayment);
+                } else if (i > 2) {
+                    // special case, stake is split between (i-1) outputs
+                    unsigned int outputs = i-1;
+                    CAmount mnPaymentSplit = (masternodePayment + rewardPayment + devPayment) / outputs;
+                    CAmount mnPaymentRemainder = (masternodePayment + rewardPayment + devPayment) - (mnPaymentSplit * outputs);
+                    for (unsigned int j=1; j<=outputs; j++) {
+                        txNew.vout[j].nValue -= mnPaymentSplit;
+                    }
+                    // in case it's not an even division, take the last bit of dust from the last one
+                    txNew.vout[outputs].nValue -= mnPaymentRemainder;
+		}
+		// dev payment
+            	CBitcoinAddress devbaddress = CBitcoinAddress(Params().GetDevFundAddress());
+            	txNew.vout.push_back(CTxOut(devPayment, GetScriptForDestination(devbaddress.Get())));
             
-            // dev payment
-            CBitcoinAddress devbaddress = CBitcoinAddress(Params().GetDevFundAddress());
-            txNew.vout.push_back(CTxOut(devPayment, GetScriptForDestination(devbaddress.Get())));
-            
-            // reward payment
-            CBitcoinAddress rewardaddress = CBitcoinAddress(Params().GetRewardFundAddress());
-            txNew.vout.push_back(CTxOut(rewardPayment, GetScriptForDestination(rewardaddress.Get())));
-            
-            
+            	// reward payment
+            	CBitcoinAddress rewardaddress = CBitcoinAddress(Params().GetRewardFundAddress());
+            	txNew.vout.push_back(CTxOut(rewardPayment, GetScriptForDestination(rewardaddress.Get())));
+             }
         } else {
             txNew.vout.resize(2);
             txNew.vout[1].scriptPubKey = payee;
@@ -369,7 +379,7 @@ void CMasternodePayments::FillBlockPayee(CMutableTransaction& txNew, int64_t nFe
         ExtractDestination(payee, address1);
         CBitcoinAddress address2(address1);
 
-        LogPrint("masternode","%s: Masternode payment of %s to %s nHeigh:%d\n", __func__, FormatMoney(masternodePayment).c_str(), address2.ToString().c_str(), nTargetHeight);
+         LogPrintf("%s: Masternode payment of %s to %s devPayment:%s rewardPayment:%s nHeigh:%d\n", __func__, FormatMoney(masternodePayment).c_str(), address2.ToString().c_str(), FormatMoney(devPayment).c_str(), FormatMoney(rewardPayment).c_str(),  nTargetHeight);
     }
     else {
         if (!fProofOfStake) {
@@ -567,19 +577,19 @@ bool CMasternodeBlockPayees::IsTransactionValid(const CTransaction& txNew)
 
     CAmount nReward = GetBlockValue(nBlockHeight);
 
-    CAmount requiredMasternodePayment = GetMasternodePayment(nBlockHeight, nReward, txNew.IsZerocoinSpend());
-
+    CAmount requiredMasternodePayment = GetMasternodePayment(nBlockHeight, nReward, txNew.HasZerocoinSpendInputs());
+    
     //require at least 6 signatures
-    BOOST_FOREACH (CMasternodePayee& payee, vecPayments)
+    for (CMasternodePayee& payee : vecPayments)
         if (payee.nVotes >= nMaxSignatures && payee.nVotes >= MNPAYMENTS_SIGNATURES_REQUIRED)
             nMaxSignatures = payee.nVotes;
 
     // if we don't have at least 6 signatures on a payee, approve whichever is the longest chain
     if (nMaxSignatures < MNPAYMENTS_SIGNATURES_REQUIRED) return true;
 
-    BOOST_FOREACH (CMasternodePayee& payee, vecPayments) {
+    for (CMasternodePayee& payee : vecPayments) {
         bool found = false;
-        BOOST_FOREACH (CTxOut out, txNew.vout) {
+        for (CTxOut out : txNew.vout) {
             if (payee.scriptPubKey == out.scriptPubKey) {
                 if(out.nValue >= requiredMasternodePayment)
                     found = true;
@@ -613,7 +623,7 @@ std::string CMasternodeBlockPayees::GetRequiredPaymentsString()
 
     std::string ret = "Unknown";
 
-    BOOST_FOREACH (CMasternodePayee& payee, vecPayments) {
+    for (CMasternodePayee& payee : vecPayments) {
         CTxDestination address1;
         ExtractDestination(payee.scriptPubKey, address1);
         CBitcoinAddress address2(address1);
@@ -731,7 +741,6 @@ bool CMasternodePayments::ProcessBlock(int nBlockHeight)
     }
 
     if (nBlockHeight <= nLastBlockHeight) return false;
-
 
     CMasternodePaymentWinner newWinner(activeMasternode.vin);
 

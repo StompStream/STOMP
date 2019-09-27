@@ -8,38 +8,38 @@ EXTRA_LIBRARIES += qt/libbitcoinqt.a
 # stomp qt core #
 QT_TS = \
   qt/locale/stomp_bg.ts \
-   qt/locale/stomp_ca.ts \
-   qt/locale/stomp_cs.ts \
-   qt/locale/stomp_da.ts \
-   qt/locale/stomp_de.ts \
-   qt/locale/stomp_en.ts \
-   qt/locale/stomp_en_GB.ts \
-   qt/locale/stomp_en_US.ts \
-   qt/locale/stomp_eo.ts \
-   qt/locale/stomp_es.ts \
-   qt/locale/stomp_es_ES.ts \
-   qt/locale/stomp_fi.ts \
-   qt/locale/stomp_fr_FR.ts \
-   qt/locale/stomp_hi_IN.ts \
-   qt/locale/stomp_hr.ts \
-   qt/locale/stomp_hr_HR.ts \
-   qt/locale/stomp_it.ts \
-   qt/locale/stomp_ja.ts \
-   qt/locale/stomp_ko_KR.ts \
-   qt/locale/stomp_lt_LT.ts \
-   qt/locale/stomp_nl.ts \
-   qt/locale/stomp_pl.ts \
-   qt/locale/stomp_pt.ts \
-   qt/locale/stomp_pt_BR.ts \
-   qt/locale/stomp_ro_RO.ts \
-   qt/locale/stomp_ru.ts \
-   qt/locale/stomp_sk.ts \
-   qt/locale/stomp_sv.ts \
-   qt/locale/stomp_tr.ts \
-   qt/locale/stomp_uk.ts \
-   qt/locale/stomp_vi.ts \
-   qt/locale/stomp_zh_CN.ts \
-   qt/locale/stomp_zh_TW.ts
+  qt/locale/stomp_ca.ts \
+  qt/locale/stomp_cs.ts \
+  qt/locale/stomp_da.ts \
+  qt/locale/stomp_de.ts \
+  qt/locale/stomp_en.ts \
+  qt/locale/stomp_en_GB.ts \
+  qt/locale/stomp_en_US.ts \
+  qt/locale/stomp_eo.ts \
+  qt/locale/stomp_es.ts \
+  qt/locale/stomp_es_ES.ts \
+  qt/locale/stomp_fi.ts \
+  qt/locale/stomp_fr_FR.ts \
+  qt/locale/stomp_hi_IN.ts \
+  qt/locale/stomp_hr.ts \
+  qt/locale/stomp_hr_HR.ts \
+  qt/locale/stomp_it.ts \
+  qt/locale/stomp_ja.ts \
+  qt/locale/stomp_ko_KR.ts \
+  qt/locale/stomp_lt_LT.ts \
+  qt/locale/stomp_nl.ts \
+  qt/locale/stomp_pl.ts \
+  qt/locale/stomp_pt.ts \
+  qt/locale/stomp_pt_BR.ts \
+  qt/locale/stomp_ro_RO.ts \
+  qt/locale/stomp_ru.ts \
+  qt/locale/stomp_sk.ts \
+  qt/locale/stomp_sv.ts \
+  qt/locale/stomp_tr.ts \
+  qt/locale/stomp_uk.ts \
+  qt/locale/stomp_vi.ts \
+  qt/locale/stomp_zh_CN.ts \
+  qt/locale/stomp_zh_TW.ts
 
 QT_FORMS_UI = \
   qt/forms/addressbookpage.ui \
@@ -47,7 +47,6 @@ QT_FORMS_UI = \
   qt/forms/bip38tooldialog.ui \
   qt/forms/coincontroldialog.ui \
   qt/forms/blockexplorer.ui \
-  qt/forms/obfuscationconfig.ui \
   qt/forms/editaddressdialog.ui \
   qt/forms/governancepage.ui \
   qt/forms/helpmessagedialog.ui \
@@ -83,7 +82,6 @@ QT_MOC_CPP = \
   qt/moc_coincontroldialog.cpp \
   qt/moc_coincontroltreewidget.cpp \
   qt/moc_csvmodelwriter.cpp \
-  qt/moc_obfuscationconfig.cpp \
   qt/moc_editaddressdialog.cpp \
   qt/moc_governancepage.cpp \
   qt/moc_guiutil.cpp \
@@ -159,7 +157,6 @@ BITCOIN_QT_H = \
   qt/coincontroldialog.h \
   qt/coincontroltreewidget.h \
   qt/csvmodelwriter.h \
-  qt/obfuscationconfig.h \
   qt/editaddressdialog.h \
   qt/governancepage.h \
   qt/guiconstants.h \
@@ -312,7 +309,6 @@ BITCOIN_QT_WALLET_CPP = \
   qt/blockexplorer.cpp \
   qt/coincontroldialog.cpp \
   qt/coincontroltreewidget.cpp \
-  qt/obfuscationconfig.cpp \
   qt/editaddressdialog.cpp \
   qt/governancepage.cpp \
   qt/masternodelist.cpp \

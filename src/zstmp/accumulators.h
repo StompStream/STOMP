@@ -1,5 +1,4 @@
-// Copyright (c) 2017-2018 The PIVX developers
-// Copyright (c) 2018 The STOMP developers
+// Copyright (c) 2017-2019 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -34,8 +33,8 @@ bool CalculateAccumulatorWitnessFor(
         libzerocoin::Accumulator& accumulator,
         libzerocoin::AccumulatorWitness& witness,
         int& nMintsAdded,
-        string& strError,
-        list<CBigNum>& ret,
+        std::string& strError,
+        std::list<CBigNum>& ret,
         int &heightStop
 );
 
@@ -44,18 +43,17 @@ bool GenerateAccumulatorWitness(
         libzerocoin::Accumulator& accumulator,
         libzerocoin::AccumulatorWitness& witness,
         int& nMintsAdded,
-        string& strError,
+        std::string& strError,
         CBlockIndex* pindexCheckpoint = nullptr);
 
 
 bool GenerateAccumulatorWitness(CoinWitnessData* coinWitness, AccumulatorMap& mapAccumulators, CBlockIndex* pindexCheckpoint);
-list<libzerocoin::PublicCoin> GetPubcoinFromBlock(const CBlockIndex* pindex);
+std::list<libzerocoin::PublicCoin> GetPubcoinFromBlock(const CBlockIndex* pindex);
 bool GetAccumulatorValueFromDB(uint256 nCheckpoint, libzerocoin::CoinDenomination denom, CBigNum& bnAccValue);
 bool GetAccumulatorValue(int& nHeight, const libzerocoin::CoinDenomination denom, CBigNum& bnAccValue);
 bool GetAccumulatorValueFromChecksum(uint32_t nChecksum, bool fMemoryOnly, CBigNum& bnAccValue);
 void AddAccumulatorChecksum(const uint32_t nChecksum, const CBigNum &bnValue, bool fMemoryOnly);
 bool CalculateAccumulatorCheckpoint(int nHeight, uint256& nCheckpoint, AccumulatorMap& mapAccumulators);
-bool CalculateAccumulatorCheckpointWithoutDB(int nHeight, uint256& nCheckpoint, AccumulatorMap& mapAccumulators);
 void DatabaseChecksums(AccumulatorMap& mapAccumulators);
 bool LoadAccumulatorValuesFromDB(const uint256 nCheckpoint);
 bool EraseAccumulatorValues(const uint256& nCheckpointErase, const uint256& nCheckpointPrevious);
@@ -71,25 +69,25 @@ bool ValidateAccumulatorCheckpoint(const CBlock& block, CBlockIndex* pindex, Acc
 class NotEnoughMintsException : public std::exception {
 public:
     std::string message;
-    NotEnoughMintsException(const string &message) : message(message) {}
+    NotEnoughMintsException(const std::string &message) : message(message) {}
 };
 
 class GetPubcoinException : public std::exception {
 public:
     std::string message;
-    GetPubcoinException(const string &message) : message(message) {}
+    GetPubcoinException(const std::string &message) : message(message) {}
 };
 
 class ChecksumInDbNotFoundException : public std::exception {
 public:
     std::string message;
-    ChecksumInDbNotFoundException(const string &message) : message(message) {}
+    ChecksumInDbNotFoundException(const std::string &message) : message(message) {}
 };
 
 class searchMintHeightException : public std::exception {
 public:
     std::string message;
-    searchMintHeightException(const string &message) : message(message) {}
+    searchMintHeightException(const std::string &message) : message(message) {}
 };
 
 #endif //STOMP_ACCUMULATORS_H

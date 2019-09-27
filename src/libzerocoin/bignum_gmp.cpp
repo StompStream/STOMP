@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
-// Copyright (c) 2017-201 The PIVX developers
+// Copyright (c) 2017-2019 The PIVX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -48,13 +48,18 @@ CBigNum::CBigNum(const std::vector<unsigned char>& vch)
     setvch(vch);
 }
 
-/** Generates a cryptographically secure random number between zero and range exclusive
-* i.e. 0 < returned number < range
+/** PRNGs use OpenSSL for consistency with seed initialization **/
+
+/** Generates a cryptographically secure random number between zero and range-1 (inclusive)
+* i.e. 0 <= returned number < range
 * @param range The upper bound on the number.
 * @return
 */
 CBigNum CBigNum::randBignum(const CBigNum& range)
 {
+    if (range < 2)
+        return 0;
+
     size_t size = (mpz_sizeinbase (range.bn, 2) + CHAR_BIT-1) / CHAR_BIT;
     std::vector<unsigned char> buf(size);
 
@@ -64,14 +69,14 @@ CBigNum CBigNum::randBignum(const CBigNum& range)
     CBigNum ret(buf);
     if (ret < 0)
         mpz_neg(ret.bn, ret.bn);
-    return ret;
+    return (ret % range);
 }
 
 /** Generates a cryptographically secure random k-bit number
 * @param k The bit length of the number.
 * @return
 */
-CBigNum CBigNum::RandKBitBigum(const uint32_t k)
+CBigNum CBigNum::randKBitBignum(const uint32_t k)
 {
     std::vector<unsigned char> buf((k+7)/8);
 
@@ -81,7 +86,7 @@ CBigNum CBigNum::RandKBitBigum(const uint32_t k)
     CBigNum ret(buf);
     if (ret < 0)
         mpz_neg(ret.bn, ret.bn);
-    return ret;
+    return ret % (CBigNum(1) << k);
 }
 
 /**Returns the size in bits of the underlying bignum.
@@ -191,12 +196,11 @@ std::string CBigNum::ToString(int nBase) const
 {
     char* c_str = mpz_get_str(NULL, nBase, bn);
     std::string str(c_str);
-    
     // Free c_str with the right free function:
     void (*freefunc)(void *, size_t);
     mp_get_memory_functions (NULL, NULL, &freefunc);
     freefunc(c_str, strlen(c_str) + 1);
-    
+
     return str;
 }
 
@@ -262,7 +266,7 @@ CBigNum CBigNum::inverse(const CBigNum& m) const
  */
 CBigNum CBigNum::generatePrime(const unsigned int numBits, bool safe)
 {
-    CBigNum rand = RandKBitBigum(numBits);
+    CBigNum rand = randKBitBignum(numBits);
     CBigNum prime;
     mpz_nextprime(prime.bn, rand.bn);
     return prime;

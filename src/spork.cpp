@@ -15,8 +15,6 @@
 #include "sporkdb.h"
 #include "util.h"
 
-using namespace std;
-using namespace boost;
 
 class CSporkMessage;
 class CSporkManager;
@@ -183,7 +181,7 @@ void ReprocessBlocks(int nBlocks)
     }
 }
 
-bool CSporkManager::CheckSignature(CSporkMessage& spork, bool fCheckSigner)
+bool CSporkManager::CheckSignature(CSporkMessage& spork, bool fRequireNew)
 {
     //note: need to investigate why this is failing
     std::string strMessage = std::to_string(spork.nSporkID) + std::to_string(spork.nValue) + std::to_string(spork.nTimeSigned);
@@ -192,7 +190,7 @@ bool CSporkManager::CheckSignature(CSporkMessage& spork, bool fCheckSigner)
 
     bool fValidWithNewKey = obfuScationSigner.VerifyMessage(pubkeynew, spork.vchSig,strMessage, errorMessage);
 
-    if (fCheckSigner && !fValidWithNewKey)
+    if (fRequireNew && !fValidWithNewKey)
         return false;
 
     // See if window is open that allows for old spork key to sign messages
