@@ -26,7 +26,7 @@ More information at [stomp.stream](http://www.stomp.stream) Visit our ANN thread
 <table>
 <th colspan=4>Genesis Block</th>
 <tr><th>Block Height</th><th>Reward Amount</th></tr>
-<tr><td>1-20</td><td>3,000,000 STMP</td></tr>
+<tr><td>1-20</td><td>4,500,000 STMP</td></tr>
 </table>
 
 ### PoW Rewards Breakdown
