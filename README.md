@@ -9,7 +9,7 @@ More information at [stomp.stream](http://www.stomp.stream) Visit our ANN thread
 <table>
 <tr><td>Algo</td><td>Quark</td></tr>
 <tr><td>Difficulty Retargeting</td><td>Every Block</td></tr>
-<tr><td>Max Coin Supply</td><td>15,000,000 STMP</td></tr>
+<tr><td>Max Coin Supply</td><td>72,000,000 STMP</td></tr>
 <tr><td>Premine</td><td>3,000,000 STMP</td></tr>
 <tr><td>Block Time</td><td>60 Seconds</td></tr>
 <tr><td>Block Minting</td><td>150</td></tr>
@@ -26,7 +26,7 @@ More information at [stomp.stream](http://www.stomp.stream) Visit our ANN thread
 <table>
 <th colspan=4>Genesis Block</th>
 <tr><th>Block Height</th><th>Reward Amount</th></tr>
-<tr><td>1-20</td><td>3,000,000 STMP</td></tr>
+<tr><td>1-20</td><td>4,500,000 STMP</td></tr>
 </table>
 
 ### PoW Rewards Breakdown
